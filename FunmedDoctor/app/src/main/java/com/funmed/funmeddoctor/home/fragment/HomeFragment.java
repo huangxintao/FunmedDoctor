@@ -5,7 +5,7 @@ import com.funmed.funmeddoctor.R;
 import me.murphy.common.base.BaseFragment;
 
 /**
- * Created by huangxintao on 2017/7/18.
+ * Created by tony on 2017/7/18.
  */
 
 public class HomeFragment extends BaseFragment {

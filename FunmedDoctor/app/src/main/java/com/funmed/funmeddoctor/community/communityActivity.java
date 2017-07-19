@@ -3,10 +3,12 @@ package com.funmed.funmeddoctor.community;
 import me.murphy.common.base.BaseActivity;
 
 /**
- * Created by huangxintao on 2017/7/18.
+ * Created by tony on 2017/7/18.
  */
 
 public class communityActivity extends BaseActivity {
+
+
     @Override
     public int getLayoutId() {
         return 0;

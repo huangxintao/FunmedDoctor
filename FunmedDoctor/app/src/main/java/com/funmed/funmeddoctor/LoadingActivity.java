@@ -1,19 +1,22 @@
 package com.funmed.funmeddoctor;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.ImageView;
 
 import com.funmed.funmeddoctor.bean.UserBean;
-import com.funmed.funmeddoctor.data.IConstants;
 import com.funmed.funmeddoctor.data.UserData;
 import com.funmed.funmeddoctor.home.activity.MainTabActivity;
 import com.funmed.funmeddoctor.mine.activity.LoginActivity;
 
 import butterknife.Bind;
 import me.murphy.common.base.BaseActivity;
+
+
+/**
+ * Created by tony on 2017/7/18.
+ */
 
 public class LoadingActivity extends BaseActivity {
 

@@ -1,7 +1,7 @@
 package com.funmed.funmeddoctor.bean;
 
 /**
- * Created by huangxintao on 2017/7/18.
+ * Created by tony on 2017/7/18.
  */
 
 public class UserBean {

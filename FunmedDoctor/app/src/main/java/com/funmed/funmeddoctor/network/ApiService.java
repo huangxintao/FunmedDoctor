@@ -10,7 +10,7 @@ import retrofit2.http.POST;
 import rx.Observable;
 
 /**
- * Created by huangxintao on 2017/7/17.
+ * Created by tony on 2017/7/17.
  */
 
 public interface ApiService {

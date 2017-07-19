@@ -11,7 +11,7 @@ import com.funmed.funmeddoctor.mine.fragment.MineFragment;
 import com.funmed.funmeddoctor.scientific.fragment.ScientificFragment;
 
 /**
- * Created by huangxintao on 2017/7/18.
+ * Created by tony on 2017/7/18.
  */
 
 public class MainAdapter extends FragmentPagerAdapter {

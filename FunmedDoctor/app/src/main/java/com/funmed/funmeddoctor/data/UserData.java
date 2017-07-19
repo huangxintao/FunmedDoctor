@@ -3,7 +3,7 @@ package com.funmed.funmeddoctor.data;
 import com.funmed.funmeddoctor.bean.UserBean;
 
 /**
- * Created by huangxintao on 2017/7/18.
+ * Created by tony on 2017/7/18.
  */
 
 public class UserData {

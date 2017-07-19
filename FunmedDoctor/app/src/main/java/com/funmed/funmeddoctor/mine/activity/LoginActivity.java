@@ -1,6 +1,5 @@
 package com.funmed.funmeddoctor.mine.activity;
 
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
@@ -10,16 +9,12 @@ import android.widget.TextView;
 import com.funmed.funmeddoctor.R;
 import com.funmed.funmeddoctor.home.activity.MainTabActivity;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import butterknife.Bind;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 import me.murphy.common.base.BaseActivity;
 
 /**
- * Created by huangxintao on 2017/7/18.
+ * Created by tony on 2017/7/18.
  */
 
 public class LoginActivity extends BaseActivity {

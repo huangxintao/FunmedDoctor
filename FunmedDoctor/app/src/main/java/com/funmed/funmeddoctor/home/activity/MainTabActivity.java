@@ -14,7 +14,7 @@ import me.murphy.common.base.BaseActivity;
 import me.murphy.common.commonwidget.NoSmoothScrollViewPager;
 
 /**
- * Created by huangxintao on 2017/7/18.
+ * Created by tony on 2017/7/18.
  */
 
 public class MainTabActivity extends BaseActivity implements OnTabItemSelectListener {
@@ -32,6 +32,7 @@ public class MainTabActivity extends BaseActivity implements OnTabItemSelectList
     @Override
     public int getLayoutId() {
         return R.layout.activity_main_tab;
+
     }
 
     @Override
