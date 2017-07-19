@@ -29,7 +29,6 @@ public class MainAdapter extends FragmentPagerAdapter {
         }
         if (position == 2) {
             return new ScientificFragment();
-
         }
         if (position == 3) {
             return new CommunityFragment();
