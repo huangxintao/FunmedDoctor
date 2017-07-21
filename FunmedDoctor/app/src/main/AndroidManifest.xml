@@ -18,8 +18,12 @@
         </activity>
         <activity android:name=".home.activity.MainTabActivity"/>
         <activity android:name=".mine.activity.LoginActivity"/>
-        <activity android:name=".clinical.activity.ClinicalActivity"/>
+        <activity android:name=".clinical.activity.DetectionSchemeActivity"/>
         <activity android:name=".mine.activity.RegisterActivity"/>
+        <activity android:name=".clinical.activity.SBKDetectionActivity"/>
+        <activity android:name=".scientific.activity.ScientificProjectOrderPlaceActivity"/>
+        <activity android:name=".scientific.activity.NormalDetectionActivity"/>
     </application>
 
+    <uses-permission android:name="android.permission.INTERNET"/>
 </manifest>

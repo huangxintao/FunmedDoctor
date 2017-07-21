@@ -1,7 +1,24 @@
 package com.funmed.funmeddoctor.scientific.fragment;
 
-import com.funmed.funmeddoctor.R;
+import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.funmed.funmeddoctor.R;
+import com.funmed.funmeddoctor.bean.ClinicalDataBean;
+import com.funmed.funmeddoctor.clinical.adapter.ClinicalDataAdapter;
+import com.funmed.funmeddoctor.scientific.activity.ScientificProjectOrderPlaceActivity;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import butterknife.Bind;
+import butterknife.ButterKnife;
 import me.murphy.common.base.BaseFragment;
 
 /**
@@ -9,6 +26,14 @@ import me.murphy.common.base.BaseFragment;
  */
 
 public class ScientificFragment extends BaseFragment {
+
+    @Bind(R.id.iv_scientific_data)
+    ImageView ivScientificData;
+    @Bind(R.id.rv_scientific_data)
+    RecyclerView rvScientificData;
+    private GridLayoutManager gridLayoutManager;
+    private ClinicalDataAdapter scientificlDataAdapter;
+
     @Override
     protected int getLayoutResource() {
         return R.layout.fragment_scientific;
@@ -26,6 +51,38 @@ public class ScientificFragment extends BaseFragment {
 
     @Override
     protected void initView() {
+        gridLayoutManager = new GridLayoutManager(getContext(),4);
+        scientificlDataAdapter = new ClinicalDataAdapter(getData(),getContext());
+        scientificlDataAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                switch (position){
+                    case 0:
+                        startActivity(ScientificProjectOrderPlaceActivity.class);
+                        break;
+                    case 1:
+                        break;
+                    case 2:
+                        break;
+                }
+            }
+        });
+        rvScientificData.setLayoutManager(gridLayoutManager);
+        rvScientificData.setAdapter(scientificlDataAdapter);
+    }
 
+    private List<ClinicalDataBean> getData() {
+        List<ClinicalDataBean> data = new ArrayList<ClinicalDataBean>();
+        ClinicalDataBean clinicalDataBean = null;
+        String[] names = {"科研项目下单", "统计分析", "项目订单查询"};
+        for (int i = 0; i < 3; i++) {
+            clinicalDataBean = new ClinicalDataBean();
+            clinicalDataBean.setDataId(i + "");
+            clinicalDataBean.setDataName(names[i]);
+            clinicalDataBean.setDataImg(R.mipmap.teacher);
+            data.add(clinicalDataBean);
+            clinicalDataBean = null;
+        }
+        return data;
     }
 }

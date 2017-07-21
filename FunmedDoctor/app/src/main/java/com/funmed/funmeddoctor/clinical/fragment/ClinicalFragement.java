@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.funmed.funmeddoctor.R;
 import com.funmed.funmeddoctor.bean.ClinicalDataBean;
-import com.funmed.funmeddoctor.clinical.activity.ClinicalActivity;
+import com.funmed.funmeddoctor.clinical.activity.DetectionSchemeActivity;
 import com.funmed.funmeddoctor.clinical.adapter.ClinicalDataAdapter;
 
 import java.util.ArrayList;
@@ -54,7 +54,7 @@ public class ClinicalFragement extends BaseFragment {
                 //跳转到数据页面
                 switch (position) {
                     case 0:
-                        startActivity(ClinicalActivity.class);
+                        startActivity(DetectionSchemeActivity.class);
                         break;
                     case 1:
                         break;

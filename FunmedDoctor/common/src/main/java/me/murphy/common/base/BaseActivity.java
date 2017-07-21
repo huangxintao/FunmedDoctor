@@ -78,6 +78,7 @@ public abstract class BaseActivity<T extends BasePresenter, E extends BaseModel>
         if (mPresenter != null) {
             mPresenter.mContext = this;
         }
+        SetTranslanteBar();
         this.initPresenter();
         this.initVariable();
         this.initView();
