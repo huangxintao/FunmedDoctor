@@ -2,19 +2,17 @@ package com.funmed.funmeddoctor.network;
 
 import com.funmed.funmeddoctor.bean.BaseBean;
 
-
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
-import rx.Observable;
 
 /**
  * Created by tony on 2017/7/17.
  */
 
 public interface ApiService {
-    String BASE_URL = "http://121.40.169.248:8010/FunengSBK/";
+    String BASE_URL = "http://www.sup-heal.com:8080/FunengSR/";
     /**
      * 首页
      *
@@ -22,10 +20,19 @@ public interface ApiService {
      */
     @FormUrlEncoded
     @POST("user/register.do")
-    Observable<BaseBean> register(@Field("username") String username, @Field("password") String password,
+    Call<BaseBean> register(@Field("username") String username, @Field("password") String password,
                                   @Field("mobile") String mobile, @Field("checkCode") String checkCode);
 
     @FormUrlEncoded
     @POST("user/checkCode.do")
-    Observable<BaseBean> getCheckCode(@Field("mobile") String mobile);
+    Call<BaseBean> getCheckCode(@Field("mobile") String mobile);
+
+    @FormUrlEncoded
+    @POST("user/login.do")
+    Call<BaseBean> login(@Field("username") String username,@Field("password") String password);
+
+    @FormUrlEncoded
+    @POST("user/forgetPwd.do")
+    Call<BaseBean> forgetPwd(@Field("username") String username, @Field("password") String password,
+                             @Field("mobile") String mobile, @Field("checkCode") String checkCode);
 }

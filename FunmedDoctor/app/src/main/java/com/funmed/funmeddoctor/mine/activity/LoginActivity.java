@@ -1,17 +1,26 @@
 package com.funmed.funmeddoctor.mine.activity;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.funmed.funmeddoctor.R;
+import com.funmed.funmeddoctor.bean.BaseBean;
 import com.funmed.funmeddoctor.home.activity.MainTabActivity;
+import com.funmed.funmeddoctor.network.APIServiceImpl;
+import com.funmed.funmeddoctor.network.ApiService;
 
 import butterknife.Bind;
 import butterknife.OnClick;
 import me.murphy.common.base.BaseActivity;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Created by tony on 2017/7/18.
@@ -30,6 +39,7 @@ public class LoginActivity extends BaseActivity {
     TextView tvForgetPassword;
     @Bind(R.id.tv_register_now)
     TextView tvRegisterNow;
+    private ApiService service;
 
     @Override
     public int getLayoutId() {
@@ -43,7 +53,7 @@ public class LoginActivity extends BaseActivity {
 
     @Override
     protected void initVariable() {
-
+        service = APIServiceImpl.getInstance().createService(ApiService.class);
     }
 
     @Override
@@ -61,7 +71,7 @@ public class LoginActivity extends BaseActivity {
                 doLogin();
                 break;
             case R.id.tv_forget_password:
-                startActivity(RegisterActivity.class);
+                startActivity(ForgetPasswordActivity.class);
                 break;
             case R.id.tv_register_now:
                 startActivity(RegisterActivity.class);
@@ -70,7 +80,28 @@ public class LoginActivity extends BaseActivity {
     }
 
     private void doLogin() {
-        startActivity(MainTabActivity.class);
-        finish();
+        Call<BaseBean> call = service.login(etUsername.getText().toString(),etPassword.getText().toString());
+        call.enqueue(new Callback<BaseBean>() {
+            @Override
+            public void onResponse(Call<BaseBean> call, Response<BaseBean> response) {
+                if (response!=null &&response.body().getCode()==0){
+                    Toast.makeText(getApplicationContext(),"登录成功",Toast.LENGTH_SHORT).show();
+                    SharedPreferences sp = getApplicationContext().getSharedPreferences("user", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sp.edit();
+                    editor.putString("username",etUsername.getText().toString());
+                    editor.putString("password",etPassword.getText().toString());
+                    editor.commit();
+                    startActivity(MainTabActivity.class);
+                    finish();
+                }else {
+                    Toast.makeText(getApplicationContext(),"登录失败",Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<BaseBean> call, Throwable t) {
+
+            }
+        });
     }
 }

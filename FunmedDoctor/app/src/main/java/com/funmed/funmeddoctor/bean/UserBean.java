@@ -1,5 +1,7 @@
 package com.funmed.funmeddoctor.bean;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by tony on 2017/7/18.
  */
@@ -84,6 +86,27 @@ public class UserBean {
         private String address;
         private String mobile;
         private int isPublic;
+        /**
+         * serialno : null
+         * type : null
+         * height : 190.0
+         * weight : 70.0
+         * headImage_path : null
+         * email : null
+         */
+
+        @SerializedName("serialno")
+        private Object serialnoX;
+        @SerializedName("type")
+        private Object typeX;
+        @SerializedName("height")
+        private double heightX;
+        @SerializedName("weight")
+        private double weightX;
+        @SerializedName("headImage_path")
+        private Object headImage_pathX;
+        @SerializedName("email")
+        private Object emailX;
 
         public String getUsername()
         {
@@ -303,6 +326,54 @@ public class UserBean {
         public void setIsPublic(int isPublic)
         {
             this.isPublic = isPublic;
+        }
+
+        public Object getSerialnoX() {
+            return serialnoX;
+        }
+
+        public void setSerialnoX(Object serialnoX) {
+            this.serialnoX = serialnoX;
+        }
+
+        public Object getTypeX() {
+            return typeX;
+        }
+
+        public void setTypeX(Object typeX) {
+            this.typeX = typeX;
+        }
+
+        public double getHeightX() {
+            return heightX;
+        }
+
+        public void setHeightX(double heightX) {
+            this.heightX = heightX;
+        }
+
+        public double getWeightX() {
+            return weightX;
+        }
+
+        public void setWeightX(double weightX) {
+            this.weightX = weightX;
+        }
+
+        public Object getHeadImage_pathX() {
+            return headImage_pathX;
+        }
+
+        public void setHeadImage_pathX(Object headImage_pathX) {
+            this.headImage_pathX = headImage_pathX;
+        }
+
+        public Object getEmailX() {
+            return emailX;
+        }
+
+        public void setEmailX(Object emailX) {
+            this.emailX = emailX;
         }
     }
 }

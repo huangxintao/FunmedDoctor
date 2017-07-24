@@ -23,6 +23,8 @@
         <activity android:name=".clinical.activity.SBKDetectionActivity"/>
         <activity android:name=".scientific.activity.ScientificProjectOrderPlaceActivity"/>
         <activity android:name=".scientific.activity.NormalDetectionActivity"/>
+        <activity android:name=".mine.activity.ForgetPasswordActivity"/>
+        <activity android:name=".mine.activity.UserInfoActivity"/>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET"/>

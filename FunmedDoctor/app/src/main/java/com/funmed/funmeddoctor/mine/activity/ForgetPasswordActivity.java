@@ -24,10 +24,10 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 /**
- * Created by tony on 2017/7/18.
+ * Created by tony on 2017/7/24.
  */
 
-public class RegisterActivity extends BaseActivity {
+public class ForgetPasswordActivity extends BaseActivity {
     @Bind(R.id.toolbar)
     Toolbar toolbar;
     @Bind(R.id.et_telephone)
@@ -40,15 +40,13 @@ public class RegisterActivity extends BaseActivity {
     EditText etUsername;
     @Bind(R.id.et_password)
     EditText etPassword;
-    @Bind(R.id.et_confirm_password)
-    EditText etConfirmPassword;
-    @Bind(R.id.btn_register)
-    Button btnRegister;
+    @Bind(R.id.btn_reset_password)
+    Button btnResetPassword;
     private ApiService service;
 
     @Override
     public int getLayoutId() {
-        return R.layout.activity_register;
+        return R.layout.activity_forget_password;
     }
 
     @Override
@@ -63,12 +61,13 @@ public class RegisterActivity extends BaseActivity {
 
     @Override
     public void initView() {
-        toolbar.setTitle("注册");
+        toolbar.setTitle("找回密码");
         setSupportActionBar(toolbar);
         SetTranslanteBar();
     }
 
-    @OnClick({R.id.btn_get_checkcode, R.id.btn_register})
+
+    @OnClick({R.id.btn_get_checkcode, R.id.btn_reset_password})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_get_checkcode:
@@ -78,10 +77,9 @@ public class RegisterActivity extends BaseActivity {
                     ToastUitl.showShort("手机号不能为空");
                 }
                 break;
-            case R.id.btn_register:
-//                if (checkNull()) {
-                    goRegister();
-//                }
+            case R.id.btn_reset_password:
+
+                doResetPassword();
                 break;
         }
     }
@@ -105,9 +103,9 @@ public class RegisterActivity extends BaseActivity {
         });
     }
 
-    //注册
-    private void goRegister() {
-        Call<BaseBean> call = service.register(etUsername.getText().toString()
+    //忘记密码，重置
+    private void doResetPassword() {
+        Call<BaseBean> call = service.forgetPwd(etUsername.getText().toString()
                 , etPassword.getText().toString()
                 , etTelephone.getText().toString()
                 , etCheckcode.getText().toString());
@@ -116,7 +114,7 @@ public class RegisterActivity extends BaseActivity {
             public void onResponse(Call<BaseBean> call, Response<BaseBean> response) {
                 if (response != null && response.body().getCode() == 0) {
                     startActivity(LoginActivity.class);
-                    Toast.makeText(getApplicationContext(),"注册成功",Toast.LENGTH_SHORT);
+                    Toast.makeText(getApplicationContext(),"重置成功",Toast.LENGTH_SHORT);
                 } else {
                     Toast.makeText(getApplicationContext(),response.body().getMsg(),Toast.LENGTH_SHORT).show();
                 }
@@ -127,32 +125,5 @@ public class RegisterActivity extends BaseActivity {
 
             }
         });
-    }
-
-    //验证用户输入信息
-    private boolean checkNull() {
-        boolean isChecked = false;
-        if (etTelephone != null && !"".equals(etTelephone)) {
-            if (etUsername != null && !"".equals(etUsername)) {
-                if (etCheckcode != null && !"".equals(etCheckcode)) {
-                    if (etPassword != null
-                            && etConfirmPassword != null
-                            && !"".equals(etPassword)
-                            && !"".equals(etConfirmPassword)
-                            && etPassword.getText().toString().equals(etConfirmPassword.getText())) {
-                        isChecked = true;
-                    } else {
-                        Toast.makeText(getApplicationContext(),"密码格式不对",Toast.LENGTH_SHORT).show();
-                    }
-                } else {
-                    Toast.makeText(getApplicationContext(),"请输入验证码",Toast.LENGTH_SHORT).show();
-                }
-            } else {
-                Toast.makeText(getApplicationContext(),"请输入用户名",Toast.LENGTH_SHORT).show();
-            }
-        } else {
-            Toast.makeText(getApplicationContext(),"请输入手机号",Toast.LENGTH_SHORT).show();
-        }
-        return isChecked;
     }
 }

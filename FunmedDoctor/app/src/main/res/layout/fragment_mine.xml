@@ -5,7 +5,7 @@
     android:orientation="vertical">
 
     <LinearLayout
-        android:id="@+id/ll_mine_unlogin"
+        android:id="@+id/ll_mine_userinfo"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp72"
         android:background="@color/white"
