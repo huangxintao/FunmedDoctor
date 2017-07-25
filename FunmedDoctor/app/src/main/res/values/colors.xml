@@ -1,6 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="black_text_color1">#2B2B2B</color>
+    <color name="dot_text_color">#AAAAAA</color>
+    <color name="gray_bg_color">#f2f1f3</color>
+    <color name="transparent">#00000000</color>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="text_red_color">#FF0000</color>
+    <color name="deep_red_bg_color">#C1272D</color>
+    <color name="text_white_color">#FFFFFF</color>
+    <color name="text_black_color">#000000</color>
+    <color name="text_gray_color">#666666</color>
+    <color name="text_deep_gray_color">#333333</color>
+    <color name="bg_alpha_grey">#cccccc</color>
+    <color name="main_activity_gray_color">#808080</color>
+    <color name="dot_color">#48BAB0</color>
+    <color name="dot_bg_color">#B7DCD2</color>
+    <color name="bottom_item_color">#f0f0f4</color>
+    <color name="home_text_color">#7b7b7b</color>
+    <color name="home_gray_line_color">#DBDBDB</color>
+    <color name="hint_color">#C7C7CD</color>
+
+    <color name="wheel_timebtn_nor">#54a3fa</color>
+    <color name="wheel_timebtn_pre">#CCCCCC</color>
+    <color name="scan_corner_color">#0effc2</color>
+    <color name="green_color">#22B573</color>
+    <color name="brown_color">#69255E</color>
+
+    <color name="choice_photo_blue">#007AFF</color>
+    <color name="orange_color">#FF8307</color>
+
+    <color name="toast_color">#802B2B2B</color>
 </resources>

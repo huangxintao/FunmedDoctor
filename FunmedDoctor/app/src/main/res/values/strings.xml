@@ -1,3 +1,286 @@
 <resources>
-    <string name="app_name">FunmedDoctor</string>
+    <string name="current_version">当前版本:V1.1.6</string>
+    <string name="app_name">苏贝康</string>
+    <string name="CircleDotProgressBar_progress_out_of_range">progress must between 0 and max(%1$d)</string>
+    <string name="tab_home">首页</string>
+    <string name="tab_detection">检测</string>
+    <string name="tab_data">数据</string>
+    <string name="tab_found">发现</string>
+    <string name="tab_me">我的</string>
+    <string name="msg_click_to_exit_app">再按一次返回键将退出应用</string>
+    <!--我的-->
+    <string name="setting">设置</string>
+    <string name="equipment">设备</string>
+    <string name="about">关于</string>
+    <string name="patient_friend">聊聊健康</string>
+    <string name="no_login">未登入</string>
+
+    <string name="login">登录</string>
+    <string name="register">注册</string>
+    <string name="finish">完成</string>
+    <string name="user_info">个人信息</string>
+    <string name="user_phone_num_hint">手机号/Phone Number</string>
+    <string name="msg_authCode">短信验证码</string>
+    <string name="user_name_hint">用户名/Username</string>
+    <string name="password_hint">密码/Password</string>
+    <string name="password_hint_again_hint">再输入一遍密码/Password</string>
+    <string name="register_account">注册账号</string>
+    <string name="forget_password">忘记密码?</string>
+    <string name="third_account_login">第三方账号登录</string>
+    <string name="default_password">使用默认密码</string>
+    <string name="auto_produce_password">随机密码</string>
+    <string name="argument_tip1">登录即表示同意</string>
+    <string name="argument_tip3">注册即表示同意</string>
+    <string name="argument_tip2">《苏贝康用户协议》</string>
+    <!--数据-->
+    <string name="weight_line">体重曲线</string>
+    <string name="weight">体重</string>
+    <string name="urine">尿十项</string>
+    <string name="daily_data">每日数据</string>
+    <string name="data_record">数据记录</string>
+    <string name="login_account">登入账号</string>
+    <string name="date">日期</string>
+    <string name="BMI">BMI</string>
+    <string name="month_average">本月均值</string>
+    <string name="last_detection">上次检测</string>
+    <string name="advice">专家建议</string>
+    <string name="sum">综合评定</string>
+    <string name="no_login_your_account">你还没有登入你的账户</string>
+    <!--检测-->
+    <string name="network_unable">网络不可用!</string>
+    <string name="please_choice_combo">请选择套餐</string>
+    <string name="people_detection">人工检测</string>
+    <string name="capacity_detection">智能检测</string>
+    <string name="more_detection">更多检测</string>
+    <string name="detection_item">检测项目</string>
+    <string name="checking">检测中...</string>
+    <string name="check_failure">检测失败</string>
+    <string name="check_finish">检测完成</string>
+    <string name="course">教程</string>
+    <string name="left">左</string>
+    <string name="right">右</string>
+    <string name="people_detection_tips">人工检测需要您\n点击下面的按钮</string>
+    <string name="notify_text">注意事项</string>
+    <string name="notify_text_one">在光线良好,白色背景下拍照</string>
+    <string name="notify_text_two">在正面拍照,不要过于倾向某个侧面</string>
+    <string name="notify_text_three">试纸从尿液取出60秒后开始拍照</string>
+    <string name="take_picture_now">拍摄试纸</string>
+    <string name="send_phone_num_tips">为了保护您的个人隐私,请先输入您的电话号码</string>
+    <string name="send_phone_num_tips2">请下载苏贝康app，登录您的私人安全账户，查看您的检测数据</string>
+    <string name="send_phone_num_success">发送成功!您可以登录苏贝康APP查看您的检测数据</string>
+
+
+    <!--发现-->
+    <string name="health_message">健康资讯</string>
+    <string name="hospital_info">医院信息</string>
+    <string name="doctor_message">医生资讯</string>
+    <string name="sub_health_product">亚健康产品</string>
+    <!--自定义输入框-->
+    <string name="edit_view_get_auth">获取验证码</string>
+    <string name="edit_view_text_empty">输入框不能为空</string>
+    <string name="edit_view_get_auth_s">s</string>
+    <string name="edit_view_get_auth_again">重新获取</string>
+
+    <!--auth_code_view-->
+    <string name="insert_auth_code">请输入验证码</string>
+    <string name="auth_code_less">验证码位数不足</string>
+    <!--mobile_view_-->
+    <string name="insert_mobile_num">请输入手机号</string>
+    <string name="mobile_num_less">手机号位数不足</string>
+
+    <!--chars_pwd_view_begin-->
+    <string name="insert_chars_pwd">请输入密码</string>
+    <string name="chars_pwd_less">登录密码需为4-16位</string>
+    <string name="chars_pwd_must_num_or_letter">登录密码需为4-16位数字或字母</string>
+
+    <!--设置-->
+    <string name="update_password">修改密码</string>
+    <string name="clean_cache_data">清理缓存</string>
+    <string name="cache">缓存</string>
+    <string name="exit_login">退出登录</string>
+    <string name="sure">确定</string>
+    <string name="updating">修改中...</string>
+    <string name="update_success">修改成功!</string>
+    <string name="login_umeng_failure">登录病友圈失败!</string>
+    <string name="login_umeng">正在登录病友圈...</string>
+
+    <!--修改密码-->
+    <string name="input_your_old_password">请输入您的旧密码</string>
+    <string name="input_your_new_password">请输入您的新密码</string>
+    <string name="input_your_new_password_again">请再次输入您的新密码</string>
+    <!--设备-->
+    <string name="manager_equipment">管理设备</string>
+    <string name="active_equipment">激活设备</string>
+    <string name="add">添加</string>
+    <string name="add_equipment">添加设备</string>
+    <string name="equipment_no">设备号</string>
+    <string name="input_equipment_no">请输入设备号!</string>
+    <string name="no_bind_equipment">暂无绑定设备</string>
+    <string name="scan_to_get_equipment_num">扫描获得设备号</string>
+    <string name="scan_code">扫码</string>
+    <string name="loading">加载中...</string>
+    <string name="scan_tip">将扫描框对准条形码即可扫描设备</string>
+    <string name="scan_code_failure">解析条形码失败!</string>
+    <!--激活设备-->
+    <string name="active_equipment_tip">请将设备进行联网</string>
+    <string name="wifi_psaaword">wifi密码</string>
+    <string name="search">搜索</string>
+    <string name="wifi_name">ssid</string>
+    <string name="found_equip_list">局域网发现设备列表</string>
+    <!--关于-->
+    <string name="user_help">使用帮助</string>
+    <string name="leave_a_message">留言</string>
+    <string name="official_website">官网</string>
+    <string name="birthday">生日</string>
+    <string name="user_agreement">用户协议</string>
+    <string name="send">发送</string>
+    <string name="leave_msg_tip">你的批评和建议能帮助我们更好的完善产品,请留下你的建议</string>
+    <string name="leave_msg_edit_tip">请输入宝贵意见(300字以内)</string>
+    <!--个人信息-->
+    <string name="head_image">头像</string>
+    <string name="nick_name">昵称</string>
+    <string name="sex">性别</string>
+    <string name="address">地区</string>
+    <string name="body_height">身高</string>
+    <string name="access_weight">接受体重范围</string>
+    <string name="save">保存</string>
+    <string name="edit">编辑</string>
+    <string name="boy">男</string>
+    <string name="girl">女</string>
+    <string name="has_selected_city">已选城市</string>
+    <string name="all">全部</string>
+    <string name="input_height">请输入身高</string>
+    <string name="input_weight">请输入体重</string>
+    <string name="system_photo">相册</string>
+    <string name="take_photo">拍照</string>
+    <string name="crop_image">图片剪切</string>
+    <string name="update_head_image">头像修改</string>
+    <string name="please_choice_date">请选择日期</string>
+
+    <!--CrashHandle-->
+    <string name="crash_alter">对不起，程序已崩溃。\n错误报告已保存，确认退出程序</string>
+    <string name="crash_quit">退出程序</string>
+    <!--注册-->
+    <string name="request_error">网络请求失败!</string>
+    <string name="registering">注册中...</string>
+    <string name="register_success">注册成功!</string>
+    <string name="register_failure">注册失败!</string>
+    <string name="code_can_not_null">验证码不能为空!</string>
+    <string name="phone_num_can_not_null">手机号不能为空!</string>
+    <string name="re_password_is_wrong">两次密码输入不一致!</string>
+    <string name="input_correct_phone">请输入正确的电话号码!</string>
+    <!--登录-->
+    <string name="logining">登录中...</string>
+    <string name="login_failure">登录失败!</string>
+    <string name="username_can_not_null">用户名不能为空!</string>
+    <string name="user_password_can_not_null">密码不能为空!</string>
+    <string name="please_login_first">请先登录!</string>
+
+    <!--pickerView-->
+    <string name="pickerview_cancel">取消</string>
+    <string name="pickerview_submit">确定</string>
+    <string name="pickerview_year">年</string>
+    <string name="pickerview_month">月</string>
+    <string name="pickerview_day">日</string>
+    <string name="pickerview_hours">时</string>
+    <string name="pickerview_minutes">分</string>
+    <string name="pickerview_seconds">秒</string>
+
+    <!--分享-->
+    <string name="wechat">微信好友</string>
+    <string name="wechat_friends">微信朋友圈</string>
+    <string name="qq">QQ</string>
+    <string name="tencent_weibo">腾讯微博</string>
+    <string name="qqzone">QQ空间</string>
+    <string name="sina_weibo">微博</string>
+    <string name="no_qq">您未安装QQ</string>
+    <string name="no_wechat">您未安装微信</string>
+
+    <!--对话框-->
+    <string name="nurse_prompt">小护士提醒</string>
+    <string name="nurse_prompt_tip">现在请按下马桶上的按钮,按完后按下确定键</string>
+    <string name="close">关闭</string>
+
+    <!--尿十项-->
+    <string name="LEU">白细胞</string>
+    <string name="LEU_value">正常范围:\t0-70</string>
+
+    <string name="NIT">亚硝酸盐</string>
+    <string name="NIT_value">阴性:\t阴性\t弱阳性:弱阳性\t强阳性:强阳性</string>
+
+    <string name="URO">尿胆原</string>
+    <string name="URO_value">阴性:\t0-33\t阳性:33-200(33为阳性)</string>
+
+    <string name="PRO">蛋白质</string>
+    <string name="PRO_value">阴性:\t0-0.15\t阳性:0.15-100(0.15为阴性)</string>
+
+    <string name="PH">PH</string>
+    <string name="PH_value">正常范围:\t5-7</string>
+
+    <string name="BLO">潜血</string>
+    <string name="BLO_value">阴性:\t0-10\t阳性:10-250(10为阴性)</string>
+
+    <string name="SG">比重</string>
+    <string name="SG_value">正常范围:\t1.015-1.025</string>
+
+    <string name="KET">酮体</string>
+    <string name="KET_value">阴性:\t0-0.5\t阳性:0.5-1.5(0.5为阴性)</string>
+
+    <string name="BIL">胆红素</string>
+    <string name="BIL_value">阴性:\t0-17\t阳性:17-100(17为阴性)</string>
+
+    <string name="GLU">葡萄糖</string>
+    <string name="GLU_value">阴性:\t0-2.8\t阳性:2.8-55(2.8为阴性)</string>
+
+    <!--分享-->
+    <string name="share_failure">分享失败!</string>
+    <string name="share_success">分享成功!</string>
+    <string name="cancel_share">取消分享!</string>
+    <!--更多检测-->
+    <string name="detection_no">编号：</string>
+    <string name="detection_fee">标准收费:</string>
+    <string name="detectionWay">检测方法：</string>
+    <string name="detectionSample">样本:</string>
+    <string name="saveRequire">样本保存要求：</string>
+    <string name="workDay">工作日:</string>
+    <string name="remark">备注：</string>
+
+    <!--留言-->
+    <string name="msg_error_tips_one">请输入意见,求指导</string>
+    <string name="msg_error_tips_two">请输入超过5个字哟亲~</string>
+    <string name="has_received_your_msg">已经收到您的意见了!</string>
+    <string name="sending">发送中~</string>
+
+    <string name="start_connect_Internet">开始配网...</string>
+    <string name="wifi_name_can_not_null">网络名称不能为空</string>
+    <string name="wifi_pwd_can_not_null">网络密码不能为空</string>
+    <string name="activing">激活中...</string>
+    <string name="active_failure">激活失败</string>
+    <string name="active_success">激活成功</string>
+
+    <!--订单-->
+    <string name="product_detail">产品详细</string>
+    <string name="check_catagory">体检种类</string>
+    <string name="check_card">体检卡</string>
+    <string name="check_product">体检仪器</string>
+    <string name="inventory">库存:</string>
+    <string name="product_size">尺寸:</string>
+    <string name="shopping_cart">购物车</string>
+    <string name="my_order">我的订单</string>
+    <string name="order_detail">订单详情</string>
+    <string name="edit_shopping_cart">编辑</string>
+    <string name="make_order">生成订单</string>
+    <string name="my_address">我的地址</string>
+    <string name="add_new_address">添加新地址</string>
+    <string name="recieve_address">收货地址</string>
+    <string name="contact">联\t系\t人</string>
+    <string name="phone_num">手机号码</string>
+    <string name="location_address">所在地区</string>
+    <string name="detail_address">详细地址</string>
+    <string name="coupons">优惠券</string>
+    <string name="promo_code">优惠码</string>
+    <string name="coupons_code">优惠券/码:</string>
+    <string name="subtotal">小记:</string>
+    <string name="total_money">应付总金额:</string>
+    <string name="pay_order">支付订单</string>
 </resources>

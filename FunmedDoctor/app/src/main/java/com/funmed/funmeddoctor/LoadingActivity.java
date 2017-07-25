@@ -1,17 +1,25 @@
 package com.funmed.funmeddoctor;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.ImageView;
 
+import com.funmed.funmeddoctor.bean.BaseBean;
 import com.funmed.funmeddoctor.bean.UserBean;
 import com.funmed.funmeddoctor.data.UserData;
 import com.funmed.funmeddoctor.home.activity.MainTabActivity;
 import com.funmed.funmeddoctor.mine.activity.LoginActivity;
+import com.funmed.funmeddoctor.network.APIServiceImpl;
+import com.funmed.funmeddoctor.network.ApiService;
 
 import butterknife.Bind;
 import me.murphy.common.base.BaseActivity;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 /**
@@ -23,6 +31,9 @@ public class LoadingActivity extends BaseActivity {
 
     @Bind(R.id.mImageView)
     ImageView mImageView;
+    private String username;
+    private String password;
+    private ApiService service;
 
     @Override
     public int getLayoutId() {
@@ -36,7 +47,7 @@ public class LoadingActivity extends BaseActivity {
 
     @Override
     protected void initVariable() {
-
+        service = APIServiceImpl.getInstance().createService(ApiService.class);
     }
 
     @Override
@@ -61,6 +72,7 @@ public class LoadingActivity extends BaseActivity {
                     {
                         super.run();
                         int time = 0;
+                        aotuLogin();
                         while (time < 1)
                         {
                             try
@@ -80,7 +92,7 @@ public class LoadingActivity extends BaseActivity {
                                 e.printStackTrace();
                             }
                         }
-                        enterNextActivity();
+//                        enterNextActivity();
                     }
                 }.start();
             }
@@ -134,5 +146,28 @@ public class LoadingActivity extends BaseActivity {
         }
         startActivity(intent);
         LoadingActivity.this.finish();
+    }
+
+    //自动登录
+    public void aotuLogin(){
+        SharedPreferences sp = getApplicationContext().getSharedPreferences("user", Context.MODE_PRIVATE);
+        username = sp.getString("username","0");
+        password = sp.getString("password","0");
+        Call<BaseBean> call = service.login(username,password);
+        call.enqueue(new Callback<BaseBean>() {
+            @Override
+            public void onResponse(Call<BaseBean> call, Response<BaseBean> response) {
+                if (response!=null &&response.body().getCode()==0){
+                    startActivity(MainTabActivity.class);
+                }else {
+                    startActivity(LoginActivity.class);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<BaseBean> call, Throwable t) {
+                startActivity(LoginActivity.class);
+            }
+        });
     }
 }

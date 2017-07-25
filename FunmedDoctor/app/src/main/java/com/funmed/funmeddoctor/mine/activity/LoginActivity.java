@@ -90,6 +90,7 @@ public class LoginActivity extends BaseActivity {
                     SharedPreferences.Editor editor = sp.edit();
                     editor.putString("username",etUsername.getText().toString());
                     editor.putString("password",etPassword.getText().toString());
+                    editor.putString("user_id",response.body().getData().getUserid());
                     editor.commit();
                     startActivity(MainTabActivity.class);
                     finish();

@@ -8,6 +8,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.funmed.funmeddoctor.R;
+import com.funmed.funmeddoctor.mine.activity.SettingActivity;
 import com.funmed.funmeddoctor.mine.activity.UserInfoActivity;
 
 import butterknife.Bind;
@@ -59,6 +60,7 @@ public class MineFragment extends BaseFragment {
                 startActivity(UserInfoActivity.class);
                 break;
             case R.id.ll_mine_settings:
+                startActivity(SettingActivity.class);
                 break;
             case R.id.ll_mine_myorder:
                 break;
