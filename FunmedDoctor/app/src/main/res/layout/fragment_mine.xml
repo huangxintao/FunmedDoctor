@@ -7,17 +7,20 @@
     <LinearLayout
         android:id="@+id/ll_mine_userinfo"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp72"
+        android:layout_height="wrap_content"
         android:background="@color/white"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:padding="@dimen/dp10">
 
-        <ImageView
-            android:layout_width="@dimen/dp50"
-            android:layout_height="@dimen/dp50"
-            android:scaleType="fitXY"
-            android:src="@mipmap/mine" />
+        <com.funmed.funmeddoctor.widget.CircleImageView
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:scaleType="centerCrop"
+            android:id="@+id/headImage"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@mipmap/user_login_avatar" />
 
         <TextView
             android:id="@+id/tv_mine_login_regist"
@@ -40,7 +43,7 @@
             android:id="@+id/ll_mine_settings"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp54"
-            android:background="@color/white"
+            android:background="@drawable/border_1dp"
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:paddingLeft="@dimen/dp12"
@@ -49,7 +52,7 @@
             <ImageView
                 android:layout_width="@dimen/dp20"
                 android:layout_height="@dimen/dp20"
-                android:src="@mipmap/ic_mine_about_us" />
+                android:src="@mipmap/setting_icon" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -68,7 +71,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/dp10"
-                android:src="@drawable/next" />
+                android:src="@mipmap/right_arrow" />
 
         </LinearLayout>
 
@@ -76,7 +79,7 @@
             android:id="@+id/ll_mine_myorder"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp54"
-            android:background="@color/white"
+            android:background="@drawable/border_1dp"
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:paddingLeft="@dimen/dp12"
@@ -85,7 +88,7 @@
             <ImageView
                 android:layout_width="@dimen/dp20"
                 android:layout_height="@dimen/dp20"
-                android:src="@mipmap/ic_mine_about_us" />
+                android:src="@mipmap/order_icon" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -104,14 +107,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/dp10"
-                android:src="@drawable/next" />
+                android:src="@mipmap/right_arrow" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/ll_mine_about_us"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp54"
-            android:background="@color/white"
+            android:background="@drawable/border_1dp"
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:paddingLeft="@dimen/dp12"
@@ -139,7 +142,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/dp10"
-                android:src="@drawable/next" />
+                android:src="@mipmap/right_arrow" />
         </LinearLayout>
     </LinearLayout>
 

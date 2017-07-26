@@ -1,6 +1,6 @@
 <resources>
     <string name="current_version">当前版本:V1.1.6</string>
-    <string name="app_name">苏贝康</string>
+    <string name="app_name">苏贝康医生</string>
     <string name="CircleDotProgressBar_progress_out_of_range">progress must between 0 and max(%1$d)</string>
     <string name="tab_home">首页</string>
     <string name="tab_detection">检测</string>
@@ -283,4 +283,6 @@
     <string name="subtotal">小记:</string>
     <string name="total_money">应付总金额:</string>
     <string name="pay_order">支付订单</string>
+    <string name="version_name">版本号</string>
+    <string name="can_not_find_version_name">找不到版本号</string>
 </resources>

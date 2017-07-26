@@ -1,5 +1,6 @@
 package com.funmed.funmeddoctor.mine.activity;
 
+import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.RelativeLayout;
@@ -9,6 +10,7 @@ import com.funmed.funmeddoctor.R;
 import com.funmed.funmeddoctor.widget.CircleImageView;
 
 import butterknife.Bind;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 import me.murphy.common.base.BaseActivity;
 
@@ -51,6 +53,10 @@ public class UserInfoActivity extends BaseActivity {
     TextView tvAge;
     @Bind(R.id.rl_age)
     RelativeLayout rlAge;
+    @Bind(R.id.toolbar_title)
+    TextView toolbarTitle;
+    @Bind(R.id.toolbar_right_title)
+    TextView toolbarRightTitle;
 
     @Override
     public int getLayoutId() {
@@ -69,32 +75,40 @@ public class UserInfoActivity extends BaseActivity {
 
     @Override
     public void initView() {
-        toolbar.setTitle("个人信息");
+        toolbarTitle.setText("个人信息");
         setSupportActionBar(toolbar);
-        SetTranslanteBar();
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
     }
 
 
-    @OnClick({R.id.headImage, R.id.headImageLayout, R.id.rl_nick_name, R.id.rl_sex, R.id.rl_height, R.id.rl_birthday, R.id.rl_email, R.id.rl_address})
+    @OnClick({R.id.headImage, R.id.headImageLayout,R.id.rl_age, R.id.rl_nick_name, R.id.rl_sex, R.id.rl_height, R.id.rl_birthday, R.id.rl_email, R.id.rl_address})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.headImage:
                 break;
             case R.id.headImageLayout:
                 break;
+            case R.id.rl_age:
+                startActivity(ChangeAgeActivity.class);
+                break;
             case R.id.rl_nick_name:
+                startActivity(ChangeNickNameActivity.class);
                 break;
             case R.id.rl_sex:
+                startActivity(ChangeSexActivity.class);
                 break;
             case R.id.rl_height:
+                startActivity(ChangeHeightActivity.class);
                 break;
             case R.id.rl_birthday:
+                startActivity(ChangeBirthdayActivity.class);
                 break;
             case R.id.rl_email:
+                startActivity(ChangeEmailActivity.class);
                 break;
             case R.id.rl_address:
+                startActivity(ChangeAddressActivity.class);
                 break;
         }
     }
-
 }

@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.funmed.funmeddoctor.bean.BaseBean;
 import com.funmed.funmeddoctor.bean.UserBean;
@@ -158,15 +159,25 @@ public class LoadingActivity extends BaseActivity {
             @Override
             public void onResponse(Call<BaseBean> call, Response<BaseBean> response) {
                 if (response!=null &&response.body().getCode()==0){
+                    Toast.makeText(getApplicationContext(),"登录成功",Toast.LENGTH_SHORT).show();
+                    SharedPreferences sp = getApplicationContext().getSharedPreferences("user", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sp.edit();
+                    editor.putString("username",username);
+                    editor.putString("password",password);
+                    editor.putString("user_id",response.body().getData().getUserid());
+                    editor.commit();
                     startActivity(MainTabActivity.class);
+                    finish();
                 }else {
                     startActivity(LoginActivity.class);
+                    finish();
                 }
             }
 
             @Override
             public void onFailure(Call<BaseBean> call, Throwable t) {
                 startActivity(LoginActivity.class);
+                finish();
             }
         });
     }

@@ -2,6 +2,7 @@ package com.funmed.funmeddoctor.scientific.activity;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -25,6 +26,8 @@ public class ScientificProjectOrderPlaceActivity extends BaseActivity {
     ImageView ivScientificDesc;
     @Bind(R.id.rv_scientific_order_type)
     RecyclerView rvScientificOrderType;
+    @Bind(R.id.toolbar)
+    Toolbar toolbar;
     private ScientificOrderTypeAdapter adapter;
     private LinearLayoutManager linearLayoutManager;
 
@@ -46,12 +49,15 @@ public class ScientificProjectOrderPlaceActivity extends BaseActivity {
 
     @Override
     public void initView() {
+        toolbar.setTitle("项目下单");
+        setSupportActionBar(toolbar);
+        SetTranslanteBar();
         rvScientificOrderType.setLayoutManager(linearLayoutManager);
         rvScientificOrderType.setAdapter(adapter);
         adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                switch (position){
+                switch (position) {
                     case 0:
                         startActivity(NormalDetectionActivity.class);
                         break;
@@ -70,8 +76,8 @@ public class ScientificProjectOrderPlaceActivity extends BaseActivity {
     private List<ScientificOrderTypeBean> getList() {
         List<ScientificOrderTypeBean> list = new ArrayList<ScientificOrderTypeBean>();
         ScientificOrderTypeBean bean = null;
-        String[] names = {"常规检测","高端检测","找样本服务","协助SCI"};
-        for (int i = 0; i <4 ; i++) {
+        String[] names = {"常规检测", "高端检测", "找样本服务", "协助SCI"};
+        for (int i = 0; i < 4; i++) {
             bean = new ScientificOrderTypeBean();
             bean.setTypeName(names[i]);
             list.add(bean);

@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.funmed.funmeddoctor.R;
 import com.funmed.funmeddoctor.mine.activity.SettingActivity;
 import com.funmed.funmeddoctor.mine.activity.UserInfoActivity;
+import com.funmed.funmeddoctor.widget.CircleImageView;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -31,6 +32,8 @@ public class MineFragment extends BaseFragment {
     LinearLayout llMineAboutUs;
     @Bind(R.id.ll_mine_userinfo)
     LinearLayout llMineUserinfo;
+    @Bind(R.id.headImage)
+    CircleImageView headImage;
 
     @Override
     protected int getLayoutResource() {
@@ -68,4 +71,5 @@ public class MineFragment extends BaseFragment {
                 break;
         }
     }
+
 }

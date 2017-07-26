@@ -1,6 +1,9 @@
 package com.funmed.funmeddoctor.community.fragment;
 
+import android.view.View;
+
 import com.funmed.funmeddoctor.R;
+import com.umeng.commm.ui.fragments.CommunityMainFragment;
 
 import me.murphy.common.base.BaseFragment;
 

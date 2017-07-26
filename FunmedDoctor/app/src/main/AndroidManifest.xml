@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.funmed.funmeddoctor">
+    package="com.funmed.funmeddoctor"
+    android:versionCode="1"
+    android:versionName="1.0.0">
 
     <application
+        android:name="com.funmed.funmeddoctor.FunmedApplication"
         android:allowBackup="true"
         android:icon="@mipmap/app_icon"
         android:label="@string/app_name"
@@ -16,18 +19,49 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".home.activity.MainTabActivity"/>
-        <activity android:name=".mine.activity.LoginActivity"/>
-        <activity android:name=".clinical.activity.DetectionSchemeActivity"/>
-        <activity android:name=".mine.activity.RegisterActivity"/>
-        <activity android:name=".clinical.activity.SBKDetectionActivity"/>
-        <activity android:name=".scientific.activity.ScientificProjectOrderPlaceActivity"/>
-        <activity android:name=".scientific.activity.NormalDetectionActivity"/>
-        <activity android:name=".mine.activity.ForgetPasswordActivity"/>
-        <activity android:name=".mine.activity.UserInfoActivity"/>
+        <activity
+            android:name=".home.activity.MainTabActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mine.activity.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".clinical.activity.DetectionSchemeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mine.activity.RegisterActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".clinical.activity.SBKDetectionActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".scientific.activity.ScientificProjectOrderPlaceActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".scientific.activity.NormalDetectionActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mine.activity.ForgetPasswordActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mine.activity.UserInfoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mine.activity.SettingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mine.activity.ChangeNickNameActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".mine.activity.ChangeHeightActivity" />
+        <activity android:name=".mine.activity.ChangeBirthdayActivity" />
+        <activity android:name=".mine.activity.ChangeEmailActivity" />
+        <activity android:name=".mine.activity.ChangeAddressActivity" />
+        <activity android:name=".mine.activity.ChangeAgeActivity" />
+        <activity android:name=".mine.activity.ChangeSexActivity" />
+        <activity android:name=".mine.activity.UpdatePasswordActivity" />
     </application>
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
     <!-- 使用相机 -->
     <uses-feature
         android:name="android.hardware.camera"
@@ -55,13 +89,13 @@
 
     <activity
         android:name="com.umeng.commm.ui.activities.FindActivity"
-        android:screenOrientation="portrait"
         android:configChanges="orientation|keyboardHidden"
+        android:screenOrientation="portrait"
         android:windowSoftInputMode="stateHidden|adjustResize" />
     <activity
         android:name="com.umeng.comm.ui.activities.FindActivity"
-        android:screenOrientation="portrait"
         android:configChanges="orientation|keyboardHidden"
+        android:screenOrientation="portrait"
         android:windowSoftInputMode="stateHidden|adjustResize" />
 
     <!--用户中心-->
@@ -117,14 +151,12 @@
         android:name="com.umeng.commm.ui.activities.PostFeedActivity"
         android:configChanges="orientation|keyboardHidden"
         android:exported="true"
-        android:windowSoftInputMode="stateHidden|adjustResize" >
-    </activity>
+        android:windowSoftInputMode="stateHidden|adjustResize"></activity>
     <activity
         android:name="com.umeng.comm.ui.activities.PostFeedActivity"
         android:configChanges="orientation|keyboardHidden"
         android:exported="true"
-        android:windowSoftInputMode="stateHidden|adjustResize" >
-    </activity>
+        android:windowSoftInputMode="stateHidden|adjustResize"></activity>
     <!--topic picker-->
     <activity
         android:name="com.umeng.comm.ui.activities.TopicPickActivity"
@@ -183,7 +215,6 @@
     <!-- feed详情页面 -->
 
 
-
     <!-- 设置页面activity -->
     <activity android:name="com.umeng.comm.ui.imagepicker.activities.SettingActivity" />
     <!--<activity android:name="com.umeng.comm.ui.activities.SettingActivity" />-->
@@ -204,7 +235,7 @@
     <activity
         android:name="com.tencent.tauth.AuthActivity"
         android:launchMode="singleTask"
-        android:noHistory="true" >
+        android:noHistory="true">
         <intent-filter>
             <action android:name="android.intent.action.VIEW" />
 
@@ -229,7 +260,7 @@
     <activity
         android:name=".WBShareActivity"
         android:configChanges="keyboardHidden|orientation"
-        android:screenOrientation="portrait" >
+        android:screenOrientation="portrait">
         <intent-filter>
             <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />
             <category android:name="android.intent.category.DEFAULT" />
@@ -238,11 +269,13 @@
     <activity
         android:name="com.sina.weibo.sdk.component.WeiboSdkBrowser"
         android:configChanges="keyboardHidden|orientation"
-        android:windowSoftInputMode="adjustResize"
-        android:exported="false" >
-    </activity>
-    <service android:name="com.sina.weibo.sdk.net.DownloadService"
+        android:exported="false"
+        android:windowSoftInputMode="adjustResize"></activity>
+
+    <service
+        android:name="com.sina.weibo.sdk.net.DownloadService"
         android:exported="false"></service>
+
     <activity android:name="com.umeng.common.ui.activities.AlbumActivity" />
 
     <activity android:name="com.umeng.commm.ui.activities.FollowedTopicActivity" />
@@ -257,7 +290,6 @@
     <activity android:name="com.umeng.common.ui.imagepicker.PhotoSelectorActivity" />
     <activity android:name="com.umeng.common.ui.imagepicker.PhotoPreviewActivity" />
     <activity android:name="com.umeng.common.ui.activities.MessageChatActivity" />
-
 
 
     <meta-data
@@ -315,6 +347,7 @@
             <action android:name="android.intent.action.BOOT_COMPLETED" />
         </intent-filter>
     </receiver>
+
     <service
         android:name="com.umeng.message.UmengService"
         android:exported="true"
@@ -371,11 +404,9 @@
 
     <meta-data
         android:name="UMENG_APPKEY"
-        android:value="583643a89f06fd0828001615" >
-    </meta-data>
+        android:value="583643a89f06fd0828001615"></meta-data>
     <!-- 友盟的App secret -->
     <meta-data
         android:name="UMENG_MESSAGE_SECRET"
-        android:value="02f84ef795b5d120850a369785451ecf" >
-    </meta-data>
+        android:value="02f84ef795b5d120850a369785451ecf"></meta-data>
 </manifest>

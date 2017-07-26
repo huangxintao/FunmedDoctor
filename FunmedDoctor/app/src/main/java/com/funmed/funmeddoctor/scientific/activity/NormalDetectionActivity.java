@@ -34,6 +34,7 @@ public class NormalDetectionActivity extends BaseActivity {
 
     @Override
     public void initView() {
+        toolbar.setTitle("常规检测");
         SetTranslanteBar();
         setSupportActionBar(toolbar);
     }

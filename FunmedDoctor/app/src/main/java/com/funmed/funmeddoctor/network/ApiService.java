@@ -35,4 +35,9 @@ public interface ApiService {
     @POST("user/forgetPwd.do")
     Call<BaseBean> forgetPwd(@Field("username") String username, @Field("password") String password,
                              @Field("mobile") String mobile, @Field("checkCode") String checkCode);
+
+    @FormUrlEncoded
+    @POST("user/updatePwd.do")
+    Call<BaseBean> updatePwd(@Field("old_password") String old_password,@Field("new_password") String new_password,
+                             @Field("userid") String user_id);
 }
