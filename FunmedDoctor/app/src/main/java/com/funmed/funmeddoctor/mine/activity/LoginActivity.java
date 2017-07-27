@@ -9,8 +9,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.alibaba.fastjson.JSON;
 import com.funmed.funmeddoctor.R;
 import com.funmed.funmeddoctor.bean.BaseBean;
+import com.funmed.funmeddoctor.bean.User;
 import com.funmed.funmeddoctor.home.activity.MainTabActivity;
 import com.funmed.funmeddoctor.network.APIServiceImpl;
 import com.funmed.funmeddoctor.network.ApiService;
@@ -92,6 +94,17 @@ public class LoginActivity extends BaseActivity {
                     editor.putString("password",etPassword.getText().toString());
                     editor.putString("user_id",response.body().getData().getUserid());
                     editor.commit();
+                    User.getUser().setUsername(response.body().getData().getUsername());
+                    User.getUser().setUserid(response.body().getData().getUserid());
+                    User.getUser().setToken(response.body().getData().getToken());
+                    User.getUser().setAge(response.body().getData().getAge());
+                    User.getUser().setHeight(response.body().getData().getHeight());
+                    User.getUser().setWeight(response.body().getData().getWeight());
+                    User.getUser().setSex(response.body().getData().getSex());
+                    User.getUser().setHeadImage_path(response.body().getData().getHeadImage_path());
+                    User.getUser().setBirthday(response.body().getData().getBirthday());
+                    User.getUser().setAddress(response.body().getData().getAddress());
+                    User.getUser().setMobile(response.body().getData().getMobile());
                     startActivity(MainTabActivity.class);
                     finish();
                 }else {

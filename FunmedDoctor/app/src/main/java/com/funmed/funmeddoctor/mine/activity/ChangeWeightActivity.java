@@ -24,24 +24,24 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 /**
- * Created by tony on 2017/7/26.
+ * Created by tony on 2017/7/27.
  */
 
-public class ChangeSexActivity extends BaseActivity {
+public class ChangeWeightActivity extends BaseActivity {
     @Bind(R.id.toolbar_title)
     TextView toolbarTitle;
     @Bind(R.id.toolbar_right_title)
     TextView toolbarRightTitle;
     @Bind(R.id.toolbar)
     Toolbar toolbar;
-    @Bind(R.id.et_sex)
-    EditText etSex;
+    @Bind(R.id.et_weight)
+    EditText etWeight;
     private ApiService service;
     private Map<String, String> params = new ArrayMap<>();
 
     @Override
     public int getLayoutId() {
-        return R.layout.activity_change_sex;
+        return R.layout.activity_change_weight;
     }
 
     @Override
@@ -56,7 +56,7 @@ public class ChangeSexActivity extends BaseActivity {
 
     @Override
     public void initView() {
-        toolbarTitle.setText("修改性别");
+        toolbarTitle.setText("修改体重");
         toolbarRightTitle.setText("保存");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
@@ -64,23 +64,23 @@ public class ChangeSexActivity extends BaseActivity {
 
     @OnClick(R.id.toolbar_right_title)
     public void onViewClicked() {
-        params.put("sex", etSex.getText().toString());
+        params.put("weight", etWeight.getText().toString());
         params.put("userid", User.getUser().getUserid());
         Call<BaseBean> call = service.addUserInfo(params);
         call.enqueue(new Callback<BaseBean>() {
             @Override
             public void onResponse(Call<BaseBean> call, Response<BaseBean> response) {
                 if (response.body()!=null && response.body().getCode()==0){
-                    Toast.makeText(ChangeSexActivity.this,response.body().getMsg(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ChangeWeightActivity.this,response.body().getMsg(), Toast.LENGTH_SHORT).show();
                     finish();
                 }else {
-                    Toast.makeText(ChangeSexActivity.this,response.body().getMsg(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ChangeWeightActivity.this,response.body().getMsg(), Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<BaseBean> call, Throwable t) {
-                Toast.makeText(ChangeSexActivity.this,t.toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(ChangeWeightActivity.this,t.toString(), Toast.LENGTH_SHORT).show();
             }
         });
     }

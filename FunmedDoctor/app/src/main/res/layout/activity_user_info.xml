@@ -142,6 +142,33 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/rl_weight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border_1dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="体重"
+            android:textSize="16sp"
+            android:textColor="@color/black_text_color1"/>
+        <TextView
+            android:id="@+id/tv_weight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_alignParentRight="true"
+            android:gravity="right"
+            android:paddingRight="15dp"
+            android:textSize="16sp"
+            android:textColor="@color/dot_color"/>
+    </RelativeLayout>
+
+    <RelativeLayout
         android:id="@+id/rl_birthday"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

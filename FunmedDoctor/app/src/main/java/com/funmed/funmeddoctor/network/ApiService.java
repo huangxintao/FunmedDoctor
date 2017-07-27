@@ -2,9 +2,13 @@ package com.funmed.funmeddoctor.network;
 
 import com.funmed.funmeddoctor.bean.BaseBean;
 
+import java.util.Map;
+
 import retrofit2.Call;
 import retrofit2.http.Field;
+import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.Headers;
 import retrofit2.http.POST;
 
 /**
@@ -40,4 +44,13 @@ public interface ApiService {
     @POST("user/updatePwd.do")
     Call<BaseBean> updatePwd(@Field("old_password") String old_password,@Field("new_password") String new_password,
                              @Field("userid") String user_id);
+
+    @FormUrlEncoded
+    @POST("user/addUserInfo.do")
+    Call<BaseBean> addUserInfo(@FieldMap Map<String,String> params);
+
+    @FormUrlEncoded
+    @POST("user/updateUserName.do")
+    @Headers("Content-Type: application/x-www-form-urlencoded;charset=utf-8")
+    Call<BaseBean> updateUserName (@FieldMap Map<String, String> params);
 }

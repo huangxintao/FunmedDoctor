@@ -64,8 +64,8 @@ public class BaseBean {
 
         private String username;
         private String userid;
-        private Object serialno;
-        private Object type;
+        private String serialno;
+        private String type;
         private String token;
         private long tokenexpiretime;
         private int id;
@@ -73,8 +73,8 @@ public class BaseBean {
         private double height;
         private double weight;
         private int sex;
-        private Object headImage_path;
-        private Object email;
+        private String headImage_path;
+        private String email;
         private long created_time;
         private String birthday;
         private String address;
@@ -101,7 +101,7 @@ public class BaseBean {
             return serialno;
         }
 
-        public void setSerialno(Object serialno) {
+        public void setSerialno(String serialno) {
             this.serialno = serialno;
         }
 
@@ -109,7 +109,7 @@ public class BaseBean {
             return type;
         }
 
-        public void setType(Object type) {
+        public void setType(String type) {
             this.type = type;
         }
 
@@ -169,11 +169,11 @@ public class BaseBean {
             this.sex = sex;
         }
 
-        public Object getHeadImage_path() {
+        public String getHeadImage_path() {
             return headImage_path;
         }
 
-        public void setHeadImage_path(Object headImage_path) {
+        public void setHeadImage_path(String headImage_path) {
             this.headImage_path = headImage_path;
         }
 
@@ -181,7 +181,7 @@ public class BaseBean {
             return email;
         }
 
-        public void setEmail(Object email) {
+        public void setEmail(String email) {
             this.email = email;
         }
 

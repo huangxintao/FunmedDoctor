@@ -8,6 +8,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.funmed.funmeddoctor.R;
+import com.funmed.funmeddoctor.bean.User;
 import com.funmed.funmeddoctor.mine.activity.SettingActivity;
 import com.funmed.funmeddoctor.mine.activity.UserInfoActivity;
 import com.funmed.funmeddoctor.widget.CircleImageView;
@@ -52,7 +53,7 @@ public class MineFragment extends BaseFragment {
 
     @Override
     protected void initView() {
-
+        tvMineLoginRegist.setText(User.getUser().getUsername());
     }
 
 

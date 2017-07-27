@@ -58,13 +58,12 @@ public class MainTabActivity extends BaseActivity implements OnTabItemSelectList
         toolbarTitle.setText("设置");
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-
         controller = mTab.builder()
-                .addTabItem(R.mipmap.home, "首页")
-                .addTabItem(R.mipmap.course, "临床数据")
-                .addTabItem(R.mipmap.course, "科研数据")
-                .addTabItem(R.mipmap.teacher, "社区")
-                .addTabItem(R.mipmap.mine, "我的")
+                .addTabItem(R.mipmap.home, "首页",getResources().getColor(R.color.main_color))
+                .addTabItem(R.mipmap.course, "临床数据",getResources().getColor(R.color.main_color))
+                .addTabItem(R.mipmap.course, "科研数据",getResources().getColor(R.color.main_color))
+                .addTabItem(R.mipmap.teacher, "社区",getResources().getColor(R.color.main_color))
+                .addTabItem(R.mipmap.mine, "我的",getResources().getColor(R.color.main_color))
                 .setMessageBackgroundColor(Color.RED)
                 .setMessageNumberColor(Color.WHITE)
                 .build();

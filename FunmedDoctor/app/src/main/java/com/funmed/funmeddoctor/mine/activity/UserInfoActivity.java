@@ -7,12 +7,14 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.funmed.funmeddoctor.R;
+import com.funmed.funmeddoctor.bean.User;
 import com.funmed.funmeddoctor.widget.CircleImageView;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import me.murphy.common.base.BaseActivity;
+import me.murphy.common.commonutils.ImageLoaderUtils;
 
 /**
  * Created by tony on 2017/7/24.
@@ -57,6 +59,10 @@ public class UserInfoActivity extends BaseActivity {
     TextView toolbarTitle;
     @Bind(R.id.toolbar_right_title)
     TextView toolbarRightTitle;
+    @Bind(R.id.tv_weight)
+    TextView tvWeight;
+    @Bind(R.id.rl_weight)
+    RelativeLayout rlWeight;
 
     @Override
     public int getLayoutId() {
@@ -78,10 +84,19 @@ public class UserInfoActivity extends BaseActivity {
         toolbarTitle.setText("个人信息");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+        tvAddress.setText(User.getUser().getAddress());
+        tvNickName.setText(User.getUser().getUsername());
+        tvSex.setText(User.getUser().getSex() == 1 ? "男" : "女");
+        tvAge.setText(String.valueOf(User.getUser().getAge()));
+        tvBirthdy.setText(User.getUser().getBirthday());
+        tvEmail.setText(User.getUser().getEmail());
+        tvHeight.setText(String.valueOf(User.getUser().getHeight()));
+        tvWeight.setText(String.valueOf(User.getUser().getWeight()));
+        ImageLoaderUtils.display(this, headImage, User.getUser().getHeadImage_path());
     }
 
 
-    @OnClick({R.id.headImage, R.id.headImageLayout,R.id.rl_age, R.id.rl_nick_name, R.id.rl_sex, R.id.rl_height, R.id.rl_birthday, R.id.rl_email, R.id.rl_address})
+    @OnClick({R.id.headImage, R.id.headImageLayout, R.id.rl_age, R.id.rl_nick_name, R.id.rl_sex, R.id.rl_height, R.id.rl_birthday, R.id.rl_email, R.id.rl_address,R.id.rl_weight})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.headImage:
@@ -108,6 +123,8 @@ public class UserInfoActivity extends BaseActivity {
                 break;
             case R.id.rl_address:
                 startActivity(ChangeAddressActivity.class);
+            case R.id.rl_weight:
+                startActivity(ChangeWeightActivity.class);
                 break;
         }
     }
