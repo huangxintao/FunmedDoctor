@@ -44,6 +44,10 @@ public class RegisterActivity extends BaseActivity {
     EditText etConfirmPassword;
     @Bind(R.id.btn_register)
     Button btnRegister;
+    @Bind(R.id.toolbar_title)
+    TextView toolbarTitle;
+    @Bind(R.id.toolbar_right_title)
+    TextView toolbarRightTitle;
     private ApiService service;
 
     @Override
@@ -63,24 +67,24 @@ public class RegisterActivity extends BaseActivity {
 
     @Override
     public void initView() {
-        toolbar.setTitle("注册");
+        toolbarTitle.setText("注册");
         setSupportActionBar(toolbar);
-        SetTranslanteBar();
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
     }
 
     @OnClick({R.id.btn_get_checkcode, R.id.btn_register})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_get_checkcode:
-                if (etTelephone!=null && !"".equals(etTelephone)){
+                if (etTelephone != null && !"".equals(etTelephone)) {
                     getCheckCode();
-                }else {
+                } else {
                     ToastUitl.showShort("手机号不能为空");
                 }
                 break;
             case R.id.btn_register:
 //                if (checkNull()) {
-                    goRegister();
+                goRegister();
 //                }
                 break;
         }
@@ -116,9 +120,9 @@ public class RegisterActivity extends BaseActivity {
             public void onResponse(Call<BaseBean> call, Response<BaseBean> response) {
                 if (response != null && response.body().getCode() == 0) {
                     startActivity(LoginActivity.class);
-                    Toast.makeText(getApplicationContext(),"注册成功",Toast.LENGTH_SHORT);
+                    Toast.makeText(getApplicationContext(), "注册成功", Toast.LENGTH_SHORT);
                 } else {
-                    Toast.makeText(getApplicationContext(),response.body().getMsg(),Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), response.body().getMsg(), Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -142,16 +146,16 @@ public class RegisterActivity extends BaseActivity {
                             && etPassword.getText().toString().equals(etConfirmPassword.getText())) {
                         isChecked = true;
                     } else {
-                        Toast.makeText(getApplicationContext(),"密码格式不对",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "密码格式不对", Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Toast.makeText(getApplicationContext(),"请输入验证码",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "请输入验证码", Toast.LENGTH_SHORT).show();
                 }
             } else {
-                Toast.makeText(getApplicationContext(),"请输入用户名",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "请输入用户名", Toast.LENGTH_SHORT).show();
             }
         } else {
-            Toast.makeText(getApplicationContext(),"请输入手机号",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "请输入手机号", Toast.LENGTH_SHORT).show();
         }
         return isChecked;
     }

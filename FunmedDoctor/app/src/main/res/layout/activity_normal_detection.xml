@@ -1,29 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
-    <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="0dp">
-
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/main_color"
-            android:fitsSystemWindows="true"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
-
-    </android.support.design.widget.AppBarLayout>
+    <include layout="@layout/layout_toolbar"/>
     <LinearLayout
+        android:layout_below="@id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:layout_marginBottom="60dp"
+        android:orientation="horizontal">
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:text="检测类型"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:padding="10dp"/>
+            <ListView
+                android:id="@+id/left_listview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+
+        <com.funmed.funmeddoctor.widget.PinnedHeaderListView
+            android:id="@+id/pinnedListView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
     </LinearLayout>
-</LinearLayout>
+    <RelativeLayout
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:background="@color/alpha_50_black"
+        android:layout_height="60dp">
+
+        <TextView
+            android:id="@+id/tv_heji"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="合计:"
+            android:layout_centerVertical="true"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:layout_marginLeft="20dp"/>
+        <TextView
+            android:layout_toRightOf="@id/tv_heji"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="￥12580.00"
+            android:layout_centerVertical="true"
+            android:textSize="16sp"
+            android:textColor="@color/colorLevelExam"
+            android:layout_gravity="center"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="提交订单"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:layout_alignParentRight="true"
+            android:background="@color/main_color"/>
+    </RelativeLayout>
+</RelativeLayout>

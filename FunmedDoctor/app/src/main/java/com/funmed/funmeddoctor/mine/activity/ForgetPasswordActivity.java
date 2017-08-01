@@ -42,6 +42,10 @@ public class ForgetPasswordActivity extends BaseActivity {
     EditText etPassword;
     @Bind(R.id.btn_reset_password)
     Button btnResetPassword;
+    @Bind(R.id.toolbar_title)
+    TextView toolbarTitle;
+    @Bind(R.id.toolbar_right_title)
+    TextView toolbarRightTitle;
     private ApiService service;
 
     @Override
@@ -61,9 +65,9 @@ public class ForgetPasswordActivity extends BaseActivity {
 
     @Override
     public void initView() {
-        toolbar.setTitle("找回密码");
+        toolbarTitle.setText("忘记密码");
         setSupportActionBar(toolbar);
-        SetTranslanteBar();
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
     }
 
 
@@ -71,9 +75,9 @@ public class ForgetPasswordActivity extends BaseActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_get_checkcode:
-                if (etTelephone!=null && !"".equals(etTelephone)){
+                if (etTelephone != null && !"".equals(etTelephone)) {
                     getCheckCode();
-                }else {
+                } else {
                     ToastUitl.showShort("手机号不能为空");
                 }
                 break;
@@ -114,9 +118,9 @@ public class ForgetPasswordActivity extends BaseActivity {
             public void onResponse(Call<BaseBean> call, Response<BaseBean> response) {
                 if (response != null && response.body().getCode() == 0) {
                     startActivity(LoginActivity.class);
-                    Toast.makeText(getApplicationContext(),"重置成功",Toast.LENGTH_SHORT);
+                    Toast.makeText(getApplicationContext(), "重置成功", Toast.LENGTH_SHORT);
                 } else {
-                    Toast.makeText(getApplicationContext(),response.body().getMsg(),Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), response.body().getMsg(), Toast.LENGTH_SHORT).show();
                 }
             }
 
