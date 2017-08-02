@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -119,7 +120,8 @@ public class LoginActivity extends BaseActivity {
 
             @Override
             public void onFailure(Call<BaseBean> call, Throwable t) {
-
+                startActivity(MainTabActivity.class);
+                t.printStackTrace();
             }
         });
     }

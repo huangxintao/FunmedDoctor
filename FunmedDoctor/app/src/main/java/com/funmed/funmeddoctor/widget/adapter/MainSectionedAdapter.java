@@ -13,6 +13,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.funmed.funmeddoctor.R;
+import com.funmed.funmeddoctor.bean.NormalDetectionBean;
+import com.funmed.funmeddoctor.scientific.activity.NormalDetectionActivity;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.Bind;
 
@@ -38,6 +43,7 @@ public class MainSectionedAdapter extends SectionedBaseAdapter {
     private Context mContext;
     private String[] leftStr;
     private String[][] rightStr;
+    private List<List<NormalDetectionBean>> rightData = new ArrayList<List<NormalDetectionBean>>();
 
     public MainSectionedAdapter(Context context, String[] leftStr, String[][] rightStr) {
         this.mContext = context;
@@ -45,9 +51,15 @@ public class MainSectionedAdapter extends SectionedBaseAdapter {
         this.rightStr = rightStr;
     }
 
+    public MainSectionedAdapter(Context context, String[] leftStr, List<List<NormalDetectionBean>> rightData) {
+        this.mContext = context;
+        this.leftStr = leftStr;
+        this.rightData = rightData;
+    }
+
     @Override
     public Object getItem(int section, int position) {
-        return rightStr[section][position];
+        return rightData.get(section).get(position);
     }
 
     @Override
@@ -61,45 +73,62 @@ public class MainSectionedAdapter extends SectionedBaseAdapter {
     }
 
     @Override
-    public int getCountForSection(int section) {
-        return rightStr[section].length;
+    public int getCountForSection (int section) {
+        return rightData.get(section).size();
     }
 
     @Override
     public View getItemView(final int section, final int position, View convertView, ViewGroup parent) {
         final ViewHolder viewHolder;
+        final NormalDetectionBean normalDetectionBean = rightData.get(section).get(position);
         if (convertView == null) {
             LayoutInflater inflator = (LayoutInflater) parent.getContext()
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflator.inflate(R.layout.right_list_item, null);
             viewHolder = new ViewHolder();
             viewHolder.btnAddCount = convertView.findViewById(R.id.btn_add_count);
-            viewHolder.btnAddCount.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    viewHolder.btnSubCount.setVisibility(View.VISIBLE);
-                    viewHolder.number++;
-                    viewHolder.tvNumber.setText(String.valueOf(viewHolder.number));
-                }
-            });
             viewHolder.btnSubCount = convertView.findViewById(R.id.btn_sub_count);
-            viewHolder.btnSubCount.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    viewHolder.number--;
-                    viewHolder.tvNumber.setText(String.valueOf(viewHolder.number));
-                }
-            });
             viewHolder.textItem = convertView.findViewById(R.id.textItem);
             viewHolder.tvNumber = convertView.findViewById(R.id.tv_number);
             viewHolder.tvPrice = convertView.findViewById(R.id.tv_price);
+            viewHolder.btnAddCount.setOnClickListener(new MyClickListener(section,position,convertView));
+//            viewHolder.btnAddCount.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    view.getTag();
+//                    normalDetectionBean.setNumber(normalDetectionBean.getNumber()+1);
+//                    notifyDataSetChanged();
+////                    viewHolder.btnSubCount.setVisibility(View.VISIBLE);
+////                    viewHolder.tvNumber.setText(String.valueOf(normalDetectionBean.getNumber()));
+//                }
+//            });
+//            viewHolder.btnSubCount.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    normalDetectionBean.setNumber(normalDetectionBean.getNumber()-1);
+//                    viewHolder.tvNumber.setText(String.valueOf(normalDetectionBean.getNumber()));
+//                }
+//            });
+            viewHolder.btnSubCount.setOnClickListener(new MyClickListener(section,position,convertView));
+
 
             convertView.setTag(viewHolder);
+            viewHolder.tvNumber.setTag(normalDetectionBean);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
+            viewHolder.tvNumber.setTag(normalDetectionBean);
         }
 
-        viewHolder.textItem.setText(rightStr[section][position]);
+        viewHolder.textItem.setText(normalDetectionBean.getName());
+        viewHolder.tvPrice.setText(String.valueOf(normalDetectionBean.getPrice()));
+        viewHolder.tvNumber.setText(String.valueOf(normalDetectionBean.getNumber()));
+        if (normalDetectionBean.getNumber()==0){
+            viewHolder.btnSubCount.setVisibility(View.GONE);
+            viewHolder.tvNumber.setVisibility(View.GONE);
+        }else {
+            viewHolder.btnSubCount.setVisibility(View.VISIBLE);
+            viewHolder.tvNumber.setVisibility(View.VISIBLE);
+        }
         viewHolder.tvNumber.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -108,10 +137,12 @@ public class MainSectionedAdapter extends SectionedBaseAdapter {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                if ("0".equals(viewHolder.tvNumber.getText().toString())) {
-                    viewHolder.btnSubCount.setVisibility(View.GONE);
-                } else {
-                    viewHolder.btnSubCount.setVisibility(View.VISIBLE);
+                if (normalDetectionBean.getNumber()==0){
+                   viewHolder.btnSubCount.setVisibility(View.GONE);
+                    viewHolder.tvNumber.setVisibility(View.GONE);
+                }else {
+                    viewHolder.tvNumber.setVisibility(View.VISIBLE);
+                   viewHolder.btnSubCount.setVisibility(View.VISIBLE);
                 }
             }
 
@@ -123,7 +154,7 @@ public class MainSectionedAdapter extends SectionedBaseAdapter {
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                Toast.makeText(mContext, rightStr[section][position], Toast.LENGTH_SHORT).show();
+                Toast.makeText(mContext, rightData.get(section).get(position).getName(), Toast.LENGTH_SHORT).show();
             }
         });
         return convertView;
@@ -159,6 +190,32 @@ public class MainSectionedAdapter extends SectionedBaseAdapter {
         TextView tvNumber;
         @Bind(R.id.btn_add_count)
         Button btnAddCount;
-        int number =0;
+    }
+
+    class MyClickListener implements View.OnClickListener{
+        private int section;
+        private int position;
+        private View convertView;
+
+        public MyClickListener(int section,int position,View convertView){
+            this.section = section;
+            this.position = position;
+            this.convertView = convertView;
+        }
+
+        @Override
+        public void onClick(View view) {
+            switch (view.getId()){
+                case R.id.btn_add_count:
+                    TextView tv_number = convertView.findViewById(R.id.tv_number);
+                    rightData.get(section).get(position).setNumber(rightData.get(section).get(position).getNumber()+1);
+                    notifyDataSetChanged();
+                    break;
+                case R.id.btn_sub_count:
+                    rightData.get(section).get(position).setNumber(rightData.get(section).get(position).getNumber()-1);
+                    notifyDataSetChanged();
+                    break;
+            }
+        }
     }
 }

@@ -153,34 +153,38 @@ public class LoadingActivity extends BaseActivity {
 
     //自动登录
     public void aotuLogin(){
-        SharedPreferences sp = getApplicationContext().getSharedPreferences("user", Context.MODE_PRIVATE);
+        final SharedPreferences sp = getApplicationContext().getSharedPreferences("user", Context.MODE_PRIVATE);
         username = sp.getString("username","0");
         password = sp.getString("password","0");
         Call<BaseBean> call = service.login(username,password);
         call.enqueue(new Callback<BaseBean>() {
             @Override
             public void onResponse(Call<BaseBean> call, Response<BaseBean> response) {
-                if (response!=null &&response.body().getCode()==0){
-                    Toast.makeText(getApplicationContext(),"登录成功",Toast.LENGTH_SHORT).show();
-                    SharedPreferences sp = getApplicationContext().getSharedPreferences("user", Context.MODE_PRIVATE);
-                    SharedPreferences.Editor editor = sp.edit();
-                    editor.putString("username",username);
-                    editor.putString("password",password);
-                    editor.putString("user_id",response.body().getData().getUserid());
-                    User.getUser().setUsername(response.body().getData().getUsername());
-                    User.getUser().setUserid(response.body().getData().getUserid());
-                    User.getUser().setToken(response.body().getData().getToken());
-                    User.getUser().setAge(response.body().getData().getAge());
-                    User.getUser().setHeight(response.body().getData().getHeight());
-                    User.getUser().setWeight(response.body().getData().getWeight());
-                    User.getUser().setSex(response.body().getData().getSex());
-                    User.getUser().setHeadImage_path(response.body().getData().getHeadImage_path());
-                    User.getUser().setBirthday(response.body().getData().getBirthday());
-                    User.getUser().setAddress(response.body().getData().getAddress());
-                    User.getUser().setMobile(response.body().getData().getMobile());
-                    editor.commit();
-                    startActivity(MainTabActivity.class);
-                    finish();
+                if (response.code()==200){
+                    if (response != null & response.body().getCode() == 0) {
+                        Toast.makeText(getApplicationContext(), "登录成功", Toast.LENGTH_SHORT).show();
+                        SharedPreferences sp = getApplicationContext().getSharedPreferences("user", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sp.edit();
+                        editor.putString("username", username);
+                        editor.putString("password", password);
+                        editor.putString("user_id", response.body().getData().getUserid());
+                        User.getUser().setUsername(response.body().getData().getUsername());
+                        User.getUser().setUserid(response.body().getData().getUserid());
+                        User.getUser().setToken(response.body().getData().getToken());
+                        User.getUser().setAge(response.body().getData().getAge());
+                        User.getUser().setHeight(response.body().getData().getHeight());
+                        User.getUser().setWeight(response.body().getData().getWeight());
+                        User.getUser().setSex(response.body().getData().getSex());
+                        User.getUser().setHeadImage_path(response.body().getData().getHeadImage_path());
+                        User.getUser().setBirthday(response.body().getData().getBirthday());
+                        User.getUser().setAddress(response.body().getData().getAddress());
+                        User.getUser().setMobile(response.body().getData().getMobile());
+                        editor.commit();
+                        startActivity(MainTabActivity.class);
+                        finish();
+                }else {
+                        startActivity(MainTabActivity.class);
+                    }
                 }else {
 //                    startActivity(LoginActivity.class);
                     startActivity(MainTabActivity.class);
