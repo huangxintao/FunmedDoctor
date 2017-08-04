@@ -30,8 +30,6 @@ public class MainSectionedAdapter extends SectionedBaseAdapter {
     ImageView imageItem;
     @Bind(R.id.textItem)
     TextView textItem;
-    @Bind(R.id.tv_price_name)
-    TextView tvPriceName;
     @Bind(R.id.tv_price)
     TextView tvPrice;
     @Bind(R.id.btn_sub_count)
@@ -44,6 +42,7 @@ public class MainSectionedAdapter extends SectionedBaseAdapter {
     private String[] leftStr;
     private String[][] rightStr;
     private List<List<NormalDetectionBean>> rightData = new ArrayList<List<NormalDetectionBean>>();
+    private List<NormalDetectionBean> priceData = new ArrayList<NormalDetectionBean>();
 
     public MainSectionedAdapter(Context context, String[] leftStr, String[][] rightStr) {
         this.mContext = context;
@@ -81,17 +80,17 @@ public class MainSectionedAdapter extends SectionedBaseAdapter {
     public View getItemView(final int section, final int position, View convertView, ViewGroup parent) {
         final ViewHolder viewHolder;
         final NormalDetectionBean normalDetectionBean = rightData.get(section).get(position);
+        MyClickListener myClickListener = null;
         if (convertView == null) {
-            LayoutInflater inflator = (LayoutInflater) parent.getContext()
+            LayoutInflater inflater = (LayoutInflater) parent.getContext()
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflator.inflate(R.layout.right_list_item, null);
+            convertView = inflater.inflate(R.layout.right_list_item, null);
             viewHolder = new ViewHolder();
             viewHolder.btnAddCount = convertView.findViewById(R.id.btn_add_count);
             viewHolder.btnSubCount = convertView.findViewById(R.id.btn_sub_count);
             viewHolder.textItem = convertView.findViewById(R.id.textItem);
             viewHolder.tvNumber = convertView.findViewById(R.id.tv_number);
             viewHolder.tvPrice = convertView.findViewById(R.id.tv_price);
-            viewHolder.btnAddCount.setOnClickListener(new MyClickListener(section,position,convertView));
 //            viewHolder.btnAddCount.setOnClickListener(new View.OnClickListener() {
 //                @Override
 //                public void onClick(View view) {
@@ -109,7 +108,6 @@ public class MainSectionedAdapter extends SectionedBaseAdapter {
 //                    viewHolder.tvNumber.setText(String.valueOf(normalDetectionBean.getNumber()));
 //                }
 //            });
-            viewHolder.btnSubCount.setOnClickListener(new MyClickListener(section,position,convertView));
 
 
             convertView.setTag(viewHolder);
@@ -117,10 +115,18 @@ public class MainSectionedAdapter extends SectionedBaseAdapter {
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
             viewHolder.tvNumber.setTag(normalDetectionBean);
+            viewHolder.btnSubCount.setTag(normalDetectionBean);
+            viewHolder.btnAddCount.setTag(normalDetectionBean);
         }
 
+        myClickListener = new MyClickListener(section,position,convertView);
+        viewHolder.btnSubCount.setTag(normalDetectionBean);
+        viewHolder.btnAddCount.setOnClickListener(myClickListener);
+        viewHolder.btnSubCount.setTag(normalDetectionBean);
+        viewHolder.btnSubCount.setOnClickListener(myClickListener);
+
         viewHolder.textItem.setText(normalDetectionBean.getName());
-        viewHolder.tvPrice.setText(String.valueOf(normalDetectionBean.getPrice()));
+        viewHolder.tvPrice.setText("¥"+String.valueOf(normalDetectionBean.getPrice()));
         viewHolder.tvNumber.setText(String.valueOf(normalDetectionBean.getNumber()));
         if (normalDetectionBean.getNumber()==0){
             viewHolder.btnSubCount.setVisibility(View.GONE);
@@ -180,8 +186,6 @@ public class MainSectionedAdapter extends SectionedBaseAdapter {
         ImageView imageItem;
         @Bind(R.id.textItem)
         TextView textItem;
-        @Bind(R.id.tv_price_name)
-        TextView tvPriceName;
         @Bind(R.id.tv_price)
         TextView tvPrice;
         @Bind(R.id.btn_sub_count)
@@ -207,12 +211,13 @@ public class MainSectionedAdapter extends SectionedBaseAdapter {
         public void onClick(View view) {
             switch (view.getId()){
                 case R.id.btn_add_count:
-                    TextView tv_number = convertView.findViewById(R.id.tv_number);
                     rightData.get(section).get(position).setNumber(rightData.get(section).get(position).getNumber()+1);
+                    ((NormalDetectionActivity)mContext).updateTotalPrice(rightData);
                     notifyDataSetChanged();
                     break;
                 case R.id.btn_sub_count:
                     rightData.get(section).get(position).setNumber(rightData.get(section).get(position).getNumber()-1);
+                    ((NormalDetectionActivity)mContext).updateTotalPrice(rightData);
                     notifyDataSetChanged();
                     break;
             }

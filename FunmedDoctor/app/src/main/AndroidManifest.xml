@@ -75,6 +75,9 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateVisible"/>
         <activity android:name=".mine.activity.ChangeWeightActivity" />
+        <activity android:name=".scientific.activity.SeniorDetectionActivity" />
+        <activity android:name=".scientific.activity.NormalDetectionConfirmActivity" />
+        <activity android:name=".scientific.activity.DetectionUserInfoUploadActivity" />
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

@@ -1,6 +1,7 @@
 package com.funmed.funmeddoctor.network;
 
 import com.funmed.funmeddoctor.bean.BaseBean;
+import com.funmed.funmeddoctor.bean.InfomationListBean;
 
 import java.util.Map;
 
@@ -17,6 +18,7 @@ import retrofit2.http.POST;
 
 public interface ApiService {
     String BASE_URL = "http://www.sup-heal.com:8080/FunengSR/";
+    String BASE_URL_INFORMATION = "http://121.40.169.248:8010/FunengSBK/";
     /**
      * 首页
      *
@@ -53,4 +55,8 @@ public interface ApiService {
     @POST("user/updateUserName.do")
     @Headers("Content-Type: application/x-www-form-urlencoded;charset=utf-8")
     Call<BaseBean> updateUserName (@FieldMap Map<String, String> params);
+
+    @FormUrlEncoded
+    @POST("information/findTitle.do")
+    Call<InfomationListBean> getMessage(@FieldMap Map<String,String> params);
 }

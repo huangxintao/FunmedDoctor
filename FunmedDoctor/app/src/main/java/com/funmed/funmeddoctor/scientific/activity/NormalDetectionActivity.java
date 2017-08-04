@@ -1,10 +1,12 @@
 package com.funmed.funmeddoctor.scientific.activity;
 
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -18,8 +20,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
-import butterknife.ButterKnife;
 import me.murphy.common.base.BaseActivity;
+import me.murphy.common.commonutils.MoneyUtil;
 
 /**
  * Created by tony on 2017/7/21.
@@ -36,8 +38,13 @@ public class NormalDetectionActivity extends BaseActivity {
     ListView leftListview;
     @Bind(R.id.pinnedListView)
     PinnedHeaderListView pinnedListView;
+    @Bind(R.id.tv_total_price)
+    TextView tvTotalPrice;
+    @Bind(R.id.btn_commit_order)
+    Button btnCommitOrder;
     private boolean isScroll = true;
     private LeftListAdapter adapter;
+    private double totalPrice = 0;
 
     private String[] leftStr = new String[]{"核酸检测", "蛋白检测", "细胞检测"};
     private boolean[] flagArray = {true, false, false, false, false, false, false, false, false};
@@ -46,10 +53,12 @@ public class NormalDetectionActivity extends BaseActivity {
             {"WB检测", "ELISA检测", "免疫组化检测"},
             {"重组病毒构建、病毒包装与滴度测定", "原带/传代细胞的培养与分离",
                     "细胞克隆技术", "细胞增殖/毒性检测",
-                    "细胞凋亡/周期检测", "细胞迁移/侵袭检测", "细胞传染/传导实验","细胞稳定术的构建",
-                    "流式细胞术","细胞免疫荧光检测技术"},
+                    "细胞凋亡/周期检测", "细胞迁移/侵袭检测", "细胞传染/传导实验", "细胞稳定术的构建",
+                    "流式细胞术", "细胞免疫荧光检测技术"},
     };
     private List<List<NormalDetectionBean>> rigrtData = new ArrayList<List<NormalDetectionBean>>();
+    private List<NormalDetectionBean> data = new ArrayList<NormalDetectionBean>();
+
 
     @Override
     public int getLayoutId() {
@@ -157,34 +166,65 @@ public class NormalDetectionActivity extends BaseActivity {
                 }
             }
         });
+
+        btnCommitOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle bundle = new Bundle();
+                data.clear();
+                for (int i = 0; i < rigrtData.size(); i++) {
+                    for (int j = 0; j < rigrtData.get(i).size(); j++) {
+                        if (rigrtData.get(i).get(j).getNumber() != 0) {
+                            data.add(rigrtData.get(i).get(j));
+                        }
+                    }
+                }
+                bundle.putParcelableArrayList("data", (ArrayList<? extends Parcelable>) data);
+                bundle.putString("amount",String.valueOf(totalPrice));
+                startActivity(DetectionUserInfoUploadActivity.class,bundle);
+//                startActivity(NormalDetectionConfirmActivity.class, bundle);
+            }
+        });
     }
 
     private void makeData() {
         List<NormalDetectionBean> subData1 = new ArrayList<>();
-        subData1.add(new NormalDetectionBean("1","rtPCR检测",100.00,0));
-        subData1.add(new NormalDetectionBean("2","单核苷酸多态性分析",800.00,0));
-        subData1.add(new NormalDetectionBean("3","miRNA检测",260.00,0));
-        subData1.add(new NormalDetectionBean("4","mRNA检测",6000.00,0));
+        subData1.add(new NormalDetectionBean("1", "rtPCR检测", 100.00, 0));
+        subData1.add(new NormalDetectionBean("2", "单核苷酸多态性分析", 800.00, 0));
+        subData1.add(new NormalDetectionBean("3", "miRNA检测", 260.00, 0));
+        subData1.add(new NormalDetectionBean("4", "mRNA检测", 6000.00, 0));
 
         List<NormalDetectionBean> subData2 = new ArrayList<>();
-        subData2.add(new NormalDetectionBean("5","WB检测",1200.00,0));
-        subData2.add(new NormalDetectionBean("6","ELISA检测",2500.00,0));
-        subData2.add(new NormalDetectionBean("7","免疫组化检测",80.00,0));
+        subData2.add(new NormalDetectionBean("5", "WB检测", 1200.00, 0));
+        subData2.add(new NormalDetectionBean("6", "ELISA检测", 2500.00, 0));
+        subData2.add(new NormalDetectionBean("7", "免疫组化检测", 80.00, 0));
 
         List<NormalDetectionBean> subData3 = new ArrayList<>();
-        subData3.add(new NormalDetectionBean("8","重组病毒构建、病毒包装与滴度测定",18000.00,0));
-        subData3.add(new NormalDetectionBean("9","原带/传代细胞的培养与分离",12000.00,0));
-        subData3.add(new NormalDetectionBean("10","细胞克隆技术",20000.00,0));
-        subData3.add(new NormalDetectionBean("11","细胞增殖/毒性检测",2000.00,0));
-        subData3.add(new NormalDetectionBean("12","细胞凋亡/周期检测",600.00,0));
-        subData3.add(new NormalDetectionBean("13","细胞迁移/侵袭检测",500.00,0));
-        subData3.add(new NormalDetectionBean("14","细胞传染/传导实验",2500.00,0));
-        subData3.add(new NormalDetectionBean("15","细胞稳定术的构建",16000.00,0));
-        subData3.add(new NormalDetectionBean("16","流式细胞术",100.00,0));
-        subData3.add(new NormalDetectionBean("17","细胞免疫荧光检测技术",3500.00,0));
+        subData3.add(new NormalDetectionBean("8", "重组病毒构建、病毒包装与滴度测定", 18000.00, 0));
+        subData3.add(new NormalDetectionBean("9", "原带/传代细胞的培养与分离", 12000.00, 0));
+        subData3.add(new NormalDetectionBean("10", "细胞克隆技术", 20000.00, 0));
+        subData3.add(new NormalDetectionBean("11", "细胞增殖/毒性检测", 2000.00, 0));
+        subData3.add(new NormalDetectionBean("12", "细胞凋亡/周期检测", 600.00, 0));
+        subData3.add(new NormalDetectionBean("13", "细胞迁移/侵袭检测", 500.00, 0));
+        subData3.add(new NormalDetectionBean("14", "细胞传染/传导实验", 2500.00, 0));
+        subData3.add(new NormalDetectionBean("15", "细胞稳定术的构建", 16000.00, 0));
+        subData3.add(new NormalDetectionBean("16", "流式细胞术", 100.00, 0));
+        subData3.add(new NormalDetectionBean("17", "细胞免疫荧光检测技术", 3500.00, 0));
 
         rigrtData.add(subData1);
         rigrtData.add(subData2);
         rigrtData.add(subData3);
+    }
+
+    public void updateTotalPrice(List<List<NormalDetectionBean>> data) {
+        this.rigrtData = data;
+        totalPrice = 0;
+        for (int i = 0; i < data.size(); i++) {
+            for (int j = 0; j < data.get(i).size(); j++) {
+                totalPrice += data.get(i).get(j).getPrice() * data.get(i).get(j).getNumber();
+            }
+        }
+//        tvTotalPrice.setText("¥"+String.valueOf(totalPrice));
+        tvTotalPrice.setText(MoneyUtil.MoneyFomatWithTwoPoint(totalPrice));
     }
 }

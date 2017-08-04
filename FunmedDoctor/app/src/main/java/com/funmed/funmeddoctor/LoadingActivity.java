@@ -183,11 +183,12 @@ public class LoadingActivity extends BaseActivity {
                         startActivity(MainTabActivity.class);
                         finish();
                 }else {
-                        startActivity(MainTabActivity.class);
+                        startActivity(LoginActivity.class);
+                        finish();
                     }
                 }else {
-//                    startActivity(LoginActivity.class);
-                    startActivity(MainTabActivity.class);
+                    startActivity(LoginActivity.class);
+//                    startActivity(MainTabActivity.class);
                     finish();
                 }
             }

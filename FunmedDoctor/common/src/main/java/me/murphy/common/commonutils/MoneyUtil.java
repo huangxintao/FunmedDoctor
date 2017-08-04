@@ -9,7 +9,7 @@ import java.text.DecimalFormat;
  */
 public class MoneyUtil {
     public static String MoneyFomatWithTwoPoint(double d){
-        DecimalFormat df = new DecimalFormat("#.##");
+        DecimalFormat df = new DecimalFormat("¥##.##");
         return df.format(d);
     }
 }

@@ -74,8 +74,8 @@ public class ScientificFragment extends BaseFragment {
     private List<ClinicalDataBean> getData() {
         List<ClinicalDataBean> data = new ArrayList<ClinicalDataBean>();
         ClinicalDataBean clinicalDataBean = null;
-        String[] names = {"科研项目下单", "统计分析", "项目订单查询"};
-        for (int i = 0; i < 3; i++) {
+        String[] names = {"科研项目下单", "统计分析", "项目订单查询","发起互助式研究"};
+        for (int i = 0; i < names.length; i++) {
             clinicalDataBean = new ClinicalDataBean();
             clinicalDataBean.setDataId(i + "");
             clinicalDataBean.setDataName(names[i]);

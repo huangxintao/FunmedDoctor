@@ -1,10 +1,12 @@
 package com.funmed.funmeddoctor.scientific.activity;
 
+import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.funmed.funmeddoctor.R;
@@ -15,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
+import butterknife.ButterKnife;
 import me.murphy.common.base.BaseActivity;
 
 /**
@@ -28,6 +31,10 @@ public class ScientificProjectOrderPlaceActivity extends BaseActivity {
     RecyclerView rvScientificOrderType;
     @Bind(R.id.toolbar)
     Toolbar toolbar;
+    @Bind(R.id.toolbar_title)
+    TextView toolbarTitle;
+    @Bind(R.id.toolbar_right_title)
+    TextView toolbarRightTitle;
     private ScientificOrderTypeAdapter adapter;
     private LinearLayoutManager linearLayoutManager;
 
@@ -49,9 +56,9 @@ public class ScientificProjectOrderPlaceActivity extends BaseActivity {
 
     @Override
     public void initView() {
-        toolbar.setTitle("项目下单");
+        toolbarTitle.setText("登录");
         setSupportActionBar(toolbar);
-        SetTranslanteBar();
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
         rvScientificOrderType.setLayoutManager(linearLayoutManager);
         rvScientificOrderType.setAdapter(adapter);
         adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
@@ -62,6 +69,7 @@ public class ScientificProjectOrderPlaceActivity extends BaseActivity {
                         startActivity(NormalDetectionActivity.class);
                         break;
                     case 1:
+                        startActivity(SeniorDetectionActivity.class);
                         break;
                     case 2:
                         break;

@@ -285,4 +285,5 @@
     <string name="pay_order">支付订单</string>
     <string name="version_name">版本号</string>
     <string name="can_not_find_version_name">找不到版本号</string>
+    <string name="RMB">¥</string>
 </resources>

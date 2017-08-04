@@ -1,10 +1,13 @@
 package com.funmed.funmeddoctor.bean;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * Created by tony on 2017/8/2.
  */
 
-public class NormalDetectionBean {
+public class NormalDetectionBean implements Parcelable{
     private String id;
     private String name;
     private int number;
@@ -20,6 +23,26 @@ public class NormalDetectionBean {
 
     public NormalDetectionBean() {
     }
+
+    protected NormalDetectionBean(Parcel in) {
+        id = in.readString();
+        name = in.readString();
+        number = in.readInt();
+        price = in.readDouble();
+        image = in.readString();
+    }
+
+    public static final Creator<NormalDetectionBean> CREATOR = new Creator<NormalDetectionBean>() {
+        @Override
+        public NormalDetectionBean createFromParcel(Parcel in) {
+            return new NormalDetectionBean(in);
+        }
+
+        @Override
+        public NormalDetectionBean[] newArray(int size) {
+            return new NormalDetectionBean[size];
+        }
+    };
 
     public String getId() {
         return id;
@@ -59,5 +82,19 @@ public class NormalDetectionBean {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(id);
+        parcel.writeString(name);
+        parcel.writeInt(number);
+        parcel.writeDouble(price);
+        parcel.writeString(image);
     }
 }

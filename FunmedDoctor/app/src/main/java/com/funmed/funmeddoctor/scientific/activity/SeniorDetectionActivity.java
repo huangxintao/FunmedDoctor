@@ -5,13 +5,14 @@ import com.funmed.funmeddoctor.R;
 import me.murphy.common.base.BaseActivity;
 
 /**
- * Created by tony on 2017/7/18.
+ * Created by tony on 2017/8/3.
  */
 
-public class ScientificActivity extends BaseActivity {
+public class SeniorDetectionActivity extends BaseActivity {
+
     @Override
     public int getLayoutId() {
-        return R.layout.activity_scientific;
+        return R.layout.activity_senior_detection;
     }
 
     @Override
@@ -26,6 +27,6 @@ public class ScientificActivity extends BaseActivity {
 
     @Override
     public void initView() {
-
     }
+
 }
