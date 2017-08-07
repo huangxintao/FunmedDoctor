@@ -4,7 +4,7 @@ package com.funmed.funmeddoctor.bean;
  * Created by tony on 2017/7/17.
  */
 
-public class BaseBean {
+public class BaseBean<T>{
 
     /**
      * code : 0

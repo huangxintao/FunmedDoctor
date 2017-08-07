@@ -78,6 +78,8 @@
         <activity android:name=".scientific.activity.SeniorDetectionActivity" />
         <activity android:name=".scientific.activity.NormalDetectionConfirmActivity" />
         <activity android:name=".scientific.activity.DetectionUserInfoUploadActivity" />
+        <activity android:name=".scientific.activity.CooperationResearchActivity" />
+        <activity android:name=".scientific.activity.CommitSuccessActivity" />
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

@@ -12,6 +12,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.funmed.funmeddoctor.R;
 import com.funmed.funmeddoctor.bean.ClinicalDataBean;
 import com.funmed.funmeddoctor.clinical.adapter.ClinicalDataAdapter;
+import com.funmed.funmeddoctor.scientific.activity.CooperationResearchActivity;
 import com.funmed.funmeddoctor.scientific.activity.ScientificProjectOrderPlaceActivity;
 
 import java.util.ArrayList;
@@ -63,6 +64,9 @@ public class ScientificFragment extends BaseFragment {
                     case 1:
                         break;
                     case 2:
+                        break;
+                    case 3:
+                        startActivity(CooperationResearchActivity.class);
                         break;
                 }
             }

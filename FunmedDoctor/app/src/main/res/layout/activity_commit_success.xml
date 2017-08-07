@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_toolbar"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/tv_commit_suc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="提交成功"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:layout_marginTop="100dp"
+            android:textColor="@color/black" />
+        <LinearLayout
+            android:layout_marginTop="100dp"
+            android:layout_below="@id/tv_commit_suc"
+            android:layout_width="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:layout_margin="10dp"
+                android:id="@+id/btn_see_now"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="立即查看"
+                android:textColor="@color/white"
+                android:background="@drawable/bg_btn_main_green"/>
+            <Button
+                android:layout_margin="10dp"
+                android:id="@+id/btn_back_to_home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="返回首页"
+                android:textColor="@color/white"
+                android:background="@drawable/bg_btn_main_green"/>
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>
