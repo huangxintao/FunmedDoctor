@@ -5,6 +5,14 @@ package com.funmed.funmeddoctor.data;
  */
 
 public interface IConstants {
+    /**
+     * 资讯的type  1.健康 2.医院信息 3.医生资讯 4.互助式研究
+     */
+    int TYPE_HEALTH=1;
+    int TYPE_HOSPITAL=2;
+    int TYPE_DOCTOR=3;
+    int TYPE_SUBHEALTH=4;
+
     interface RequestUrl
     {
         /**

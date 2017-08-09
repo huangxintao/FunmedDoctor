@@ -74,7 +74,7 @@
     <string name="health_message">健康资讯</string>
     <string name="hospital_info">医院信息</string>
     <string name="doctor_message">医生资讯</string>
-    <string name="sub_health_product">亚健康产品</string>
+    <string name="sub_health_product">互助研究</string>
     <!--自定义输入框-->
     <string name="edit_view_get_auth">获取验证码</string>
     <string name="edit_view_text_empty">输入框不能为空</string>
