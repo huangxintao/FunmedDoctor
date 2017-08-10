@@ -69,18 +69,18 @@ public class CommunityFragment extends BaseFragment {
         tabLayout.addTab(tabLayout.newTab());
 
         tabLayout.setupWithViewPager(viewpager);
-        tabLayout.getTabAt(0).setText(R.string.health_message);
-        tabLayout.getTabAt(1).setText(R.string.hospital_info);
-        tabLayout.getTabAt(2).setText(R.string.doctor_message);
-        tabLayout.getTabAt(3).setText(R.string.sub_health_product);
+        tabLayout.getTabAt(0).setText(R.string.sub_health_product);
+        tabLayout.getTabAt(1).setText(R.string.health_message);
+        tabLayout.getTabAt(2).setText(R.string.hospital_info);
+        tabLayout.getTabAt(3).setText(R.string.doctor_message);
     }
 
     private void setupViewPager() {
         fragmentAdapter = new CommunityFragmentAdapter(getChildFragmentManager());
+        fragmentAdapter.addFragment(SubHealthFragment.newInstance(), getString(R.string.sub_health_product));
         fragmentAdapter.addFragment(HealthFragment.newInstance(), getString(R.string.health_message));
         fragmentAdapter.addFragment(HospitalFragment.newInstance(), getString(R.string.hospital_info));
         fragmentAdapter.addFragment(DoctorFragment.newInstance(), getString(R.string.doctor_message));
-        fragmentAdapter.addFragment(SubHealthFragment.newInstance(), getString(R.string.sub_health_product));
         viewpager.setAdapter(fragmentAdapter);
     }
 }

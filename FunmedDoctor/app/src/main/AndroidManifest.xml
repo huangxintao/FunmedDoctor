@@ -21,7 +21,8 @@
         </activity>
         <activity
             android:name=".home.activity.MainTabActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:launchMode="singleTask"/>
         <activity
             android:name=".mine.activity.LoginActivity"
             android:screenOrientation="portrait" />
@@ -80,6 +81,8 @@
         <activity android:name=".scientific.activity.DetectionUserInfoUploadActivity" />
         <activity android:name=".scientific.activity.CooperationResearchActivity" />
         <activity android:name=".scientific.activity.CommitSuccessActivity" />
+        <activity android:name=".community.activity.MsgInfoDetailActivity" />
+        <activity android:name=".community.activity.AidResearchDetailActivity" />
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

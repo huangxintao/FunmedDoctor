@@ -123,6 +123,7 @@ public class UserInfoActivity extends BaseActivity {
                 break;
             case R.id.rl_address:
                 startActivity(ChangeAddressActivity.class);
+                break;
             case R.id.rl_weight:
                 startActivity(ChangeWeightActivity.class);
                 break;

@@ -76,13 +76,13 @@ public class LoadingActivity extends BaseActivity {
                         super.run();
                         int time = 0;
                         aotuLogin();
-                        while (time < 1)
+                        while (time < 3)
                         {
                             try
                             {
                                 if(isLogin())
                                 {
-                                    time = 1;
+                                    time = 3;
                                 }
                                 else
                                 {

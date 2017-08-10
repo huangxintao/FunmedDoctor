@@ -38,6 +38,7 @@ public class HealthFragment extends BaseFragment {
     private HealthInfoAdapter adapter;
     private LinearLayoutManager layoutManager;
     int lastVisableItem;
+    private String title;
 
     public static HealthFragment newInstance() {
         return new HealthFragment();
@@ -62,7 +63,8 @@ public class HealthFragment extends BaseFragment {
     @Override
     protected void initView() {
         rvHealth.setLayoutManager(layoutManager);
-        adapter = new HealthInfoAdapter(getContext(),data);
+        title = "研究进展";
+        adapter = new HealthInfoAdapter(getContext(),data,title);
         rvHealth.setAdapter(adapter);
         refreshData();
 

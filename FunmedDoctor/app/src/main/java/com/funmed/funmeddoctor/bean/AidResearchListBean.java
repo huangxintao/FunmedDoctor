@@ -1,5 +1,8 @@
 package com.funmed.funmeddoctor.bean;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.List;
 
 /**
@@ -42,7 +45,7 @@ public class AidResearchListBean {
         this.data = data;
     }
 
-    public static class DataBean {
+    public static class DataBean implements Parcelable{
         /**
          * id : 13
          * initiator : 哈哈
@@ -68,6 +71,32 @@ public class AidResearchListBean {
         private long update_time;
         private String userid;
         private String formtype;
+
+        protected DataBean(Parcel in) {
+            id = in.readInt();
+            initiator = in.readString();
+            mobile = in.readString();
+            email = in.readString();
+            diseaser_name = in.readString();
+            profile = in.readString();
+            research_fund = in.readString();
+            create_time = in.readLong();
+            update_time = in.readLong();
+            userid = in.readString();
+            formtype = in.readString();
+        }
+
+        public static final Creator<DataBean> CREATOR = new Creator<DataBean>() {
+            @Override
+            public DataBean createFromParcel(Parcel in) {
+                return new DataBean(in);
+            }
+
+            @Override
+            public DataBean[] newArray(int size) {
+                return new DataBean[size];
+            }
+        };
 
         public int getId() {
             return id;
@@ -155,6 +184,26 @@ public class AidResearchListBean {
 
         public void setFormtype(String formtype) {
             this.formtype = formtype;
+        }
+
+        @Override
+        public int describeContents() {
+            return 0;
+        }
+
+        @Override
+        public void writeToParcel(Parcel parcel, int i) {
+            parcel.writeInt(id);
+            parcel.writeString(initiator);
+            parcel.writeString(mobile);
+            parcel.writeString(email);
+            parcel.writeString(diseaser_name);
+            parcel.writeString(profile);
+            parcel.writeString(research_fund);
+            parcel.writeLong(create_time);
+            parcel.writeLong(update_time);
+            parcel.writeString(userid);
+            parcel.writeString(formtype);
         }
     }
 }

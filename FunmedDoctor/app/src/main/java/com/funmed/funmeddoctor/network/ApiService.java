@@ -1,8 +1,10 @@
 package com.funmed.funmeddoctor.network;
 
+import com.funmed.funmeddoctor.bean.AidResearchListBean;
 import com.funmed.funmeddoctor.bean.BaseBean;
 import com.funmed.funmeddoctor.bean.DataResponse;
 import com.funmed.funmeddoctor.bean.InfomationListBean;
+import com.funmed.funmeddoctor.bean.MsgInfoDetailBean;
 
 import java.util.Map;
 
@@ -111,6 +113,15 @@ public interface ApiService {
     Call<InfomationListBean> getMessage(@FieldMap Map<String,String> params);
 
     /**
+     * 获取资讯详情
+     * @param informationid
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("information/findInformationBody.do")
+    Call<MsgInfoDetailBean> getMsgDeatil(@Field("informationid") String informationid);
+
+    /**
      * 提交互助式研究表
      * @param params
      * @return
@@ -126,5 +137,5 @@ public interface ApiService {
      */
     @FormUrlEncoded
     @POST("research/findAidResearch.do")
-    Call<BaseBean> findAidResearch(@Field("userid")String useid);
+    Call<AidResearchListBean> findAidResearch(@Field("userid")String useid);
 }

@@ -144,6 +144,40 @@
                 android:layout_marginLeft="@dimen/dp10"
                 android:src="@mipmap/right_arrow" />
         </LinearLayout>
+        <LinearLayout
+            android:id="@+id/ll_mine_my_research"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp54"
+            android:background="@drawable/border_1dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/dp12"
+            android:paddingRight="@dimen/dp12">
+
+            <ImageView
+                android:layout_width="@dimen/dp20"
+                android:layout_height="@dimen/dp20"
+                android:src="@mipmap/detection_pressed" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp12"
+                android:text="我发起的"
+                android:textColor="@color/_333"
+                android:textSize="@dimen/font_normal_big" />
+
+            <android.support.v4.widget.Space
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp10"
+                android:src="@mipmap/right_arrow" />
+        </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>
