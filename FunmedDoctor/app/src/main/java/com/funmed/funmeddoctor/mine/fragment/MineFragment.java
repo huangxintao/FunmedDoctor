@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.funmed.funmeddoctor.R;
 import com.funmed.funmeddoctor.bean.User;
+import com.funmed.funmeddoctor.mine.activity.MyResearchActivity;
 import com.funmed.funmeddoctor.mine.activity.SettingActivity;
 import com.funmed.funmeddoctor.mine.activity.UserInfoActivity;
 import com.funmed.funmeddoctor.widget.CircleImageView;
@@ -35,6 +36,8 @@ public class MineFragment extends BaseFragment {
     LinearLayout llMineUserinfo;
     @Bind(R.id.headImage)
     CircleImageView headImage;
+    @Bind(R.id.ll_mine_my_research)
+    LinearLayout llMineMyResearch;
 
     @Override
     protected int getLayoutResource() {
@@ -57,7 +60,7 @@ public class MineFragment extends BaseFragment {
     }
 
 
-    @OnClick({R.id.ll_mine_userinfo, R.id.ll_mine_settings, R.id.ll_mine_myorder, R.id.ll_mine_about_us})
+    @OnClick({R.id.ll_mine_userinfo, R.id.ll_mine_settings, R.id.ll_mine_myorder, R.id.ll_mine_about_us,R.id.ll_mine_my_research})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.ll_mine_userinfo:
@@ -70,7 +73,9 @@ public class MineFragment extends BaseFragment {
                 break;
             case R.id.ll_mine_about_us:
                 break;
+            case R.id.ll_mine_my_research:
+                startActivity(MyResearchActivity.class);
+                break;
         }
     }
-
 }

@@ -1,26 +1,26 @@
 package com.funmed.funmeddoctor.scientific.activity;
 
-import android.os.Bundle;
+import android.content.Context;
+import android.os.Build;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
+import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.funmed.funmeddoctor.R;
-import com.funmed.funmeddoctor.bean.BaseBean;
 import com.funmed.funmeddoctor.bean.DataResponse;
 import com.funmed.funmeddoctor.bean.User;
 import com.funmed.funmeddoctor.network.APIServiceImpl;
-import com.funmed.funmeddoctor.network.APIServiceImplInfo;
 import com.funmed.funmeddoctor.network.ApiService;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import butterknife.Bind;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 import me.murphy.common.base.BaseActivity;
 import retrofit2.Call;
@@ -75,6 +75,10 @@ public class CooperationResearchActivity extends BaseActivity {
         toolbarTitle.setText("发起互助式研究");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            toolbar.setPadding(0, getStatusBarHeight(this), 0, 0);
+        }
     }
 
     @OnClick(R.id.btn_commit)
@@ -126,5 +130,26 @@ public class CooperationResearchActivity extends BaseActivity {
             checked = true;
         }
         return checked;
+    }
+
+    //获取状态栏高度
+    private static int getStatusBarHeight(Context context) {
+        int statusBarHeight = dip2px(context, 25);
+        try {
+            Class<?> clazz = Class.forName("com.android.internal.R$dimen");
+            Object object = clazz.newInstance();
+            int height = Integer.parseInt(clazz.getField("status_bar_height")
+                    .get(object).toString());
+            statusBarHeight = context.getResources().getDimensionPixelSize(height);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return statusBarHeight;
+    }
+
+    //根据手机的分辨率从 dp 的单位 转成为 px(像素)
+    public static int dip2px(Context context, float dpValue) {
+        final float scale = context.getResources().getDisplayMetrics().density;
+        return (int) (dpValue * scale + 0.5f);
     }
 }

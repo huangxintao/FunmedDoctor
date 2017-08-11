@@ -83,6 +83,7 @@
         <activity android:name=".scientific.activity.CommitSuccessActivity" />
         <activity android:name=".community.activity.MsgInfoDetailActivity" />
         <activity android:name=".community.activity.AidResearchDetailActivity" />
+        <activity android:name=".mine.activity.MyResearchActivity" />
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

@@ -71,7 +71,7 @@
 
 
     <!--发现-->
-    <string name="health_message">健康资讯</string>
+    <string name="health_message">研究进展</string>
     <string name="hospital_info">医院信息</string>
     <string name="doctor_message">医生资讯</string>
     <string name="sub_health_product">互助研究</string>
