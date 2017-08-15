@@ -207,7 +207,7 @@ public class NormalDetectionActivity extends BaseActivity {
         subData3.add(new NormalDetectionBean("12", "细胞凋亡/周期检测", 600.00, 0));
         subData3.add(new NormalDetectionBean("13", "细胞迁移/侵袭检测", 500.00, 0));
         subData3.add(new NormalDetectionBean("14", "细胞传染/传导实验", 2500.00, 0));
-        subData3.add(new NormalDetectionBean("15", "细胞稳定术的构建", 16000.00, 0));
+        subData3.add(new NormalDetectionBean("15", "细胞稳定株的构建", 16000.00, 0));
         subData3.add(new NormalDetectionBean("16", "流式细胞术", 100.00, 0));
         subData3.add(new NormalDetectionBean("17", "细胞免疫荧光检测技术", 3500.00, 0));
 

@@ -3,8 +3,10 @@ package com.funmed.funmeddoctor.home.activity;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.funmed.funmeddoctor.R;
 import com.funmed.funmeddoctor.home.adapter.MainAdapter;
@@ -100,4 +102,19 @@ public class MainTabActivity extends BaseActivity implements OnTabItemSelectList
 
     }
 
+    private long exitTime;
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if(keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN){
+            if((System.currentTimeMillis()-exitTime) > 2000){
+                Toast.makeText(getApplicationContext(), "再按一次退出程序", Toast.LENGTH_SHORT).show();
+                exitTime = System.currentTimeMillis();
+            } else {
+                finish();
+                System.exit(0);
+            }
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 }

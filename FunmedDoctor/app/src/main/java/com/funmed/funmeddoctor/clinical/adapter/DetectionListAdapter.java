@@ -23,7 +23,7 @@ public class DetectionListAdapter extends BaseQuickAdapter<DetectionListBean,Bas
     @Override
     protected void convert(BaseViewHolder helper, DetectionListBean item) {
         helper.setText(R.id.tv_item_detection,item.getDetectionName());
-        ImageView imageView = helper.getView(R.id.iv_item_detection_arrow);
-        imageView.setImageResource(R.mipmap.right_arrow);
+//        ImageView imageView = helper.getView(R.id.iv_item_detection_arrow);
+//        imageView.setImageResource(R.mipmap.right_arrow);
     }
 }

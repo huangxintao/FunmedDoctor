@@ -3,6 +3,7 @@ package com.funmed.funmeddoctor.network;
 import com.funmed.funmeddoctor.bean.AidResearchListBean;
 import com.funmed.funmeddoctor.bean.BaseBean;
 import com.funmed.funmeddoctor.bean.DataResponse;
+import com.funmed.funmeddoctor.bean.GarbageBean;
 import com.funmed.funmeddoctor.bean.InfomationListBean;
 import com.funmed.funmeddoctor.bean.MsgInfoDetailBean;
 
@@ -138,4 +139,12 @@ public interface ApiService {
     @FormUrlEncoded
     @POST("research/findAidResearch.do")
     Call<AidResearchListBean> findAidResearch(@Field("userid")String useid);
+
+    /**
+     * 提交常规检测订单
+     *
+     */
+    @FormUrlEncoded
+    @POST("common/addCommonsDetection.do")
+    Call<GarbageBean> addCommonDetection(@FieldMap Map<String,String> params);
 }

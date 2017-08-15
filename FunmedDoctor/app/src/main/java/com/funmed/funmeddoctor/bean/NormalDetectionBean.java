@@ -7,21 +7,36 @@ import android.os.Parcelable;
  * Created by tony on 2017/8/2.
  */
 
-public class NormalDetectionBean implements Parcelable{
+public class NormalDetectionBean implements Parcelable {
     private String id;
     private String name;
     private int number;
     private double price;
     private String image;
 
-    public NormalDetectionBean(String id, String name, double price,int number) {
+    public String getDetection_field() {
+        return detection_field;
+    }
+
+    public void setDetection_field(String detection_field) {
+        this.detection_field = detection_field;
+    }
+
+    private String detection_field;
+
+    public NormalDetectionBean(String id, String name, double price, int number) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.number = number;
     }
 
-    public NormalDetectionBean() {
+    public NormalDetectionBean(String id, String name, String detection_field, double price, int number) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.number = number;
+        this.detection_field = detection_field;
     }
 
     protected NormalDetectionBean(Parcel in) {

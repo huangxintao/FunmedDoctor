@@ -152,7 +152,7 @@
             android:id="@+id/btn_pay_order"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="去支付"
+            android:text="提交"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
             android:textColor="@color/white"

@@ -1,6 +1,7 @@
 package com.funmed.funmeddoctor.scientific.activity;
 
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -36,7 +37,7 @@ public class ScientificProjectOrderPlaceActivity extends BaseActivity {
     @Bind(R.id.toolbar_right_title)
     TextView toolbarRightTitle;
     private ScientificOrderTypeAdapter adapter;
-    private LinearLayoutManager linearLayoutManager;
+    private GridLayoutManager linearLayoutManager;
 
     @Override
     public int getLayoutId() {
@@ -51,12 +52,12 @@ public class ScientificProjectOrderPlaceActivity extends BaseActivity {
     @Override
     protected void initVariable() {
         adapter = new ScientificOrderTypeAdapter(getList());
-        linearLayoutManager = new LinearLayoutManager(getApplicationContext());
+        linearLayoutManager = new GridLayoutManager(getApplicationContext(),4);
     }
 
     @Override
     public void initView() {
-        toolbarTitle.setText("登录");
+        toolbarTitle.setText("科研项目下单");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         rvScientificOrderType.setLayoutManager(linearLayoutManager);

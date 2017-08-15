@@ -21,8 +21,8 @@
         </activity>
         <activity
             android:name=".home.activity.MainTabActivity"
-            android:screenOrientation="portrait"
-            android:launchMode="singleTask"/>
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".mine.activity.LoginActivity"
             android:screenOrientation="portrait" />
@@ -53,37 +53,54 @@
         <activity
             android:name=".mine.activity.ChangeNickNameActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateVisible"/>
-        <activity android:name=".mine.activity.ChangeHeightActivity"
+            android:windowSoftInputMode="stateVisible" />
+        <activity
+            android:name=".mine.activity.ChangeHeightActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateVisible"/>
-        <activity android:name=".mine.activity.ChangeBirthdayActivity"
+            android:windowSoftInputMode="stateVisible" />
+        <activity
+            android:name=".mine.activity.ChangeBirthdayActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateVisible"/>
-        <activity android:name=".mine.activity.ChangeEmailActivity"
+            android:windowSoftInputMode="stateVisible" />
+        <activity
+            android:name=".mine.activity.ChangeEmailActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateVisible"/>
-        <activity android:name=".mine.activity.ChangeAddressActivity"
+            android:windowSoftInputMode="stateVisible" />
+        <activity
+            android:name=".mine.activity.ChangeAddressActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateVisible"/>
-        <activity android:name=".mine.activity.ChangeAgeActivity"
+            android:windowSoftInputMode="stateVisible" />
+        <activity
+            android:name=".mine.activity.ChangeAgeActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateVisible"/>
-        <activity android:name=".mine.activity.ChangeSexActivity"
+            android:windowSoftInputMode="stateVisible" />
+        <activity
+            android:name=".mine.activity.ChangeSexActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateVisible"/>
-        <activity android:name=".mine.activity.UpdatePasswordActivity"
+            android:windowSoftInputMode="stateVisible" />
+        <activity
+            android:name=".mine.activity.UpdatePasswordActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateVisible"/>
-        <activity android:name=".mine.activity.ChangeWeightActivity" />
-        <activity android:name=".scientific.activity.SeniorDetectionActivity" />
-        <activity android:name=".scientific.activity.NormalDetectionConfirmActivity" />
-        <activity android:name=".scientific.activity.DetectionUserInfoUploadActivity" />
-        <activity android:name=".scientific.activity.CooperationResearchActivity" />
-        <activity android:name=".scientific.activity.CommitSuccessActivity" />
-        <activity android:name=".community.activity.MsgInfoDetailActivity" />
-        <activity android:name=".community.activity.AidResearchDetailActivity" />
-        <activity android:name=".mine.activity.MyResearchActivity" />
+            android:windowSoftInputMode="stateVisible" />
+        <activity android:name=".mine.activity.ChangeWeightActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".scientific.activity.SeniorDetectionActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".scientific.activity.NormalDetectionConfirmActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".scientific.activity.DetectionUserInfoUploadActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".scientific.activity.CooperationResearchActivity"
+            android:windowSoftInputMode="adjustPan"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".scientific.activity.CommitSuccessActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".community.activity.MsgInfoDetailActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".community.activity.AidResearchDetailActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".mine.activity.MyResearchActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

@@ -74,6 +74,7 @@ public class CooperationResearchActivity extends BaseActivity {
     public void initView() {
         toolbarTitle.setText("发起互助式研究");
         setSupportActionBar(toolbar);
+        toolbar.setFitsSystemWindows(false);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
