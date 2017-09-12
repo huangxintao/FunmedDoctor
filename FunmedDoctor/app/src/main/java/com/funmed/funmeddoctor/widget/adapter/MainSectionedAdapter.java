@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.funmed.funmeddoctor.R;
 import com.funmed.funmeddoctor.bean.NormalDetectionBean;
 import com.funmed.funmeddoctor.scientific.activity.NormalDetectionActivity;
@@ -20,6 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
+import me.murphy.common.commonutils.ImageLoaderUtils;
 
 /**
  * Created by tony on 2017/7/31.
@@ -72,7 +74,7 @@ public class MainSectionedAdapter extends SectionedBaseAdapter {
     }
 
     @Override
-    public int getCountForSection (int section) {
+    public int getCountForSection(int section) {
         return rightData.get(section).size();
     }
 
@@ -91,6 +93,7 @@ public class MainSectionedAdapter extends SectionedBaseAdapter {
             viewHolder.textItem = convertView.findViewById(R.id.textItem);
             viewHolder.tvNumber = convertView.findViewById(R.id.tv_number);
             viewHolder.tvPrice = convertView.findViewById(R.id.tv_price);
+            viewHolder.imageItem = convertView.findViewById(R.id.imageItem);
 //            viewHolder.btnAddCount.setOnClickListener(new View.OnClickListener() {
 //                @Override
 //                public void onClick(View view) {
@@ -119,19 +122,20 @@ public class MainSectionedAdapter extends SectionedBaseAdapter {
             viewHolder.btnAddCount.setTag(normalDetectionBean);
         }
 
-        myClickListener = new MyClickListener(section,position,convertView);
+        myClickListener = new MyClickListener(section, position, convertView);
         viewHolder.btnSubCount.setTag(normalDetectionBean);
         viewHolder.btnAddCount.setOnClickListener(myClickListener);
         viewHolder.btnSubCount.setTag(normalDetectionBean);
         viewHolder.btnSubCount.setOnClickListener(myClickListener);
 
         viewHolder.textItem.setText(normalDetectionBean.getName());
-        viewHolder.tvPrice.setText("¥"+String.valueOf(normalDetectionBean.getPrice()));
+        viewHolder.tvPrice.setText("¥" + String.valueOf(normalDetectionBean.getPrice()));
         viewHolder.tvNumber.setText(String.valueOf(normalDetectionBean.getNumber()));
-        if (normalDetectionBean.getNumber()==0){
+        viewHolder.imageItem.setImageResource(normalDetectionBean.getImageResource());
+        if (normalDetectionBean.getNumber() == 0) {
             viewHolder.btnSubCount.setVisibility(View.GONE);
             viewHolder.tvNumber.setVisibility(View.GONE);
-        }else {
+        } else {
             viewHolder.btnSubCount.setVisibility(View.VISIBLE);
             viewHolder.tvNumber.setVisibility(View.VISIBLE);
         }
@@ -143,12 +147,12 @@ public class MainSectionedAdapter extends SectionedBaseAdapter {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                if (normalDetectionBean.getNumber()==0){
-                   viewHolder.btnSubCount.setVisibility(View.GONE);
+                if (normalDetectionBean.getNumber() == 0) {
+                    viewHolder.btnSubCount.setVisibility(View.GONE);
                     viewHolder.tvNumber.setVisibility(View.GONE);
-                }else {
+                } else {
                     viewHolder.tvNumber.setVisibility(View.VISIBLE);
-                   viewHolder.btnSubCount.setVisibility(View.VISIBLE);
+                    viewHolder.btnSubCount.setVisibility(View.VISIBLE);
                 }
             }
 
@@ -196,12 +200,12 @@ public class MainSectionedAdapter extends SectionedBaseAdapter {
         Button btnAddCount;
     }
 
-    class MyClickListener implements View.OnClickListener{
+    class MyClickListener implements View.OnClickListener {
         private int section;
         private int position;
         private View convertView;
 
-        public MyClickListener(int section,int position,View convertView){
+        public MyClickListener(int section, int position, View convertView) {
             this.section = section;
             this.position = position;
             this.convertView = convertView;
@@ -209,15 +213,15 @@ public class MainSectionedAdapter extends SectionedBaseAdapter {
 
         @Override
         public void onClick(View view) {
-            switch (view.getId()){
+            switch (view.getId()) {
                 case R.id.btn_add_count:
-                    rightData.get(section).get(position).setNumber(rightData.get(section).get(position).getNumber()+1);
-                    ((NormalDetectionActivity)mContext).updateTotalPrice(rightData);
+                    rightData.get(section).get(position).setNumber(rightData.get(section).get(position).getNumber() + 1);
+                    ((NormalDetectionActivity) mContext).updateTotalPrice(rightData);
                     notifyDataSetChanged();
                     break;
                 case R.id.btn_sub_count:
-                    rightData.get(section).get(position).setNumber(rightData.get(section).get(position).getNumber()-1);
-                    ((NormalDetectionActivity)mContext).updateTotalPrice(rightData);
+                    rightData.get(section).get(position).setNumber(rightData.get(section).get(position).getNumber() - 1);
+                    ((NormalDetectionActivity) mContext).updateTotalPrice(rightData);
                     notifyDataSetChanged();
                     break;
             }

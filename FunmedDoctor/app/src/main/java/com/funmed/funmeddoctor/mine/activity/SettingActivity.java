@@ -6,10 +6,12 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.funmed.funmeddoctor.R;
 
@@ -17,6 +19,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import me.murphy.common.base.BaseActivity;
+import me.murphy.common.baseapp.AppManager;
 
 /**
  * Created by tony on 2017/7/25.
@@ -95,8 +98,8 @@ public class SettingActivity extends BaseActivity {
                 editor.putString("password", "0");
                 editor.putString("user_id", "0");
                 editor.commit();
+                AppManager.getAppManager().finishAllActivity();
                 startActivity(LoginActivity.class);
-                finish();
                 break;
         }
     }
@@ -112,4 +115,5 @@ public class SettingActivity extends BaseActivity {
             return this.getString(R.string.can_not_find_version_name);
         }
     }
+
 }

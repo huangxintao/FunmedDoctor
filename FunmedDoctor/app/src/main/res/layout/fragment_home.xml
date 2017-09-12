@@ -7,7 +7,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="170dp">
+        android:layout_height="160dp">
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -22,6 +22,25 @@
             android:id="@id/id_circle_menu_item_center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
+            <com.funmed.funmeddoctor.widget.DotProgressBar
+                android:layout_centerInParent="true"
+                android:background="@android:color/white"
+                app:progressMax="100"
+                app:dotColor="@color/dot_color"
+                app:dotBgColor="@color/dot_bg_color"
+                app:progressTextSize="40sp"
+                app:progressTextColor="@color/dot_text_color"
+                app:isFontSystem="true"
+                app:thinPadding="5"
+                app:describeText="健康状况"
+                app:describeTextSize="10sp"
+                app:btnImage="@mipmap/home_btn_check_icon_red"
+                app:btnPressedImage="@mipmap/home_btn_check_icon_pressed"
+                app:describeTextColor="@color/dot_text_color"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:clickable="true"
+                android:id="@+id/dotProgressBar"/>
         </RelativeLayout>
     </com.funmed.funmeddoctor.widget.CircleMenuLayout>
 </LinearLayout>

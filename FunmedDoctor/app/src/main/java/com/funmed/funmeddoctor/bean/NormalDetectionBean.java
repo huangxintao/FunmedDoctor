@@ -14,6 +14,16 @@ public class NormalDetectionBean implements Parcelable {
     private double price;
     private String image;
 
+    public int getImageResource() {
+        return imageResource;
+    }
+
+    public void setImageResource(int imageResource) {
+        this.imageResource = imageResource;
+    }
+
+    private int imageResource;
+
     public String getDetection_field() {
         return detection_field;
     }
@@ -37,6 +47,14 @@ public class NormalDetectionBean implements Parcelable {
         this.price = price;
         this.number = number;
         this.detection_field = detection_field;
+    }
+
+    public NormalDetectionBean(String id, String name, double price, int number,int imageResource) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.number = number;
+        this.imageResource = imageResource;
     }
 
     protected NormalDetectionBean(Parcel in) {

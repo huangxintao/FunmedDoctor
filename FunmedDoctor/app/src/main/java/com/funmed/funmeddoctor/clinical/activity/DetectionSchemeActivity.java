@@ -101,7 +101,7 @@ public class DetectionSchemeActivity extends BaseActivity {
     private List<DetectionListBean> getHomeDetectionListData() {
         List<DetectionListBean> list = new ArrayList<DetectionListBean>();
         DetectionListBean detectionListBean = null;
-        String[] names = {"苏贝康系统检测", "望诊", "问诊", "样本送检"};
+        String[] names = {"院外随访", "望诊", "问诊", "样本送检"};
         for (int i = 0; i < 4; i++) {
             detectionListBean = new DetectionListBean();
             detectionListBean.setDetectionName(names[i]);
@@ -114,7 +114,7 @@ public class DetectionSchemeActivity extends BaseActivity {
     private List<DetectionListBean> getMedicalDetectonListData() {
         List<DetectionListBean> list = new ArrayList<DetectionListBean>();
         DetectionListBean detectionListBean = null;
-        String[] names = {"周边医院检测", "体检中心检测"};
+        String[] names = {"周边医院", "体检中心"};
         for (int i = 0; i < 2; i++) {
             detectionListBean = new DetectionListBean();
             detectionListBean.setDetectionName(names[i]);

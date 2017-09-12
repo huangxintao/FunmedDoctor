@@ -71,6 +71,25 @@ public class AidResearchListBean {
         private long update_time;
         private String userid;
         private String formtype;
+        /**
+         * ischeck : 2
+         * urgent : null
+         * cycle : null
+         * sample_size : 50
+         * inspection_methods_and_indexes : Java
+         * special_requirements : 没有
+         * help_content : redis高级视频学习
+         * sample_name : Redis
+         */
+
+        private String ischeck;
+        private Object urgent;
+        private Object cycle;
+        private String sample_size;
+        private String inspection_methods_and_indexes;
+        private String special_requirements;
+        private String help_content;
+        private String sample_name;
 
         protected DataBean(Parcel in) {
             id = in.readInt();
@@ -204,6 +223,70 @@ public class AidResearchListBean {
             parcel.writeLong(update_time);
             parcel.writeString(userid);
             parcel.writeString(formtype);
+        }
+
+        public String getIscheck() {
+            return ischeck;
+        }
+
+        public void setIscheck(String ischeck) {
+            this.ischeck = ischeck;
+        }
+
+        public Object getUrgent() {
+            return urgent;
+        }
+
+        public void setUrgent(Object urgent) {
+            this.urgent = urgent;
+        }
+
+        public Object getCycle() {
+            return cycle;
+        }
+
+        public void setCycle(Object cycle) {
+            this.cycle = cycle;
+        }
+
+        public String getSample_size() {
+            return sample_size;
+        }
+
+        public void setSample_size(String sample_size) {
+            this.sample_size = sample_size;
+        }
+
+        public String getInspection_methods_and_indexes() {
+            return inspection_methods_and_indexes;
+        }
+
+        public void setInspection_methods_and_indexes(String inspection_methods_and_indexes) {
+            this.inspection_methods_and_indexes = inspection_methods_and_indexes;
+        }
+
+        public String getSpecial_requirements() {
+            return special_requirements;
+        }
+
+        public void setSpecial_requirements(String special_requirements) {
+            this.special_requirements = special_requirements;
+        }
+
+        public String getHelp_content() {
+            return help_content;
+        }
+
+        public void setHelp_content(String help_content) {
+            this.help_content = help_content;
+        }
+
+        public String getSample_name() {
+            return sample_name;
+        }
+
+        public void setSample_name(String sample_name) {
+            this.sample_name = sample_name;
         }
     }
 }

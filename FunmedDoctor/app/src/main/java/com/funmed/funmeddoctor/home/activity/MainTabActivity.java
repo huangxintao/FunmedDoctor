@@ -39,6 +39,10 @@ public class MainTabActivity extends BaseActivity implements OnTabItemSelectList
      */
     private Controller controller;
 
+    public void setSelectedItem(int pos){
+        controller.setSelect(pos);
+    }
+
     @Override
     public int getLayoutId() {
         return R.layout.activity_main_tab;
@@ -63,8 +67,8 @@ public class MainTabActivity extends BaseActivity implements OnTabItemSelectList
         controller = mTab.builder()
                 .addTabItem(R.mipmap.home, "首页",getResources().getColor(R.color.main_color))
                 .addTabItem(R.mipmap.course, "临床数据",getResources().getColor(R.color.main_color))
-                .addTabItem(R.mipmap.course, "科研数据",getResources().getColor(R.color.main_color))
-                .addTabItem(R.mipmap.teacher, "社区",getResources().getColor(R.color.main_color))
+                .addTabItem(R.mipmap.data_normal, "科研数据",getResources().getColor(R.color.main_color))
+                .addTabItem(R.mipmap.found_normal, "社区",getResources().getColor(R.color.main_color))
                 .addTabItem(R.mipmap.mine, "我的",getResources().getColor(R.color.main_color))
                 .setMessageBackgroundColor(Color.RED)
                 .setMessageNumberColor(Color.WHITE)

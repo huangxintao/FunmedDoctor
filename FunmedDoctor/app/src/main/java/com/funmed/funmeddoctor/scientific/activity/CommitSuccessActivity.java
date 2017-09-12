@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.funmed.funmeddoctor.R;
 import com.funmed.funmeddoctor.home.activity.MainTabActivity;
+import com.funmed.funmeddoctor.mine.activity.MyResearchActivity;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -60,6 +61,8 @@ public class CommitSuccessActivity extends BaseActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_see_now:
+                AppManager.getAppManager().returnToActivity(MainTabActivity.class);
+                startActivity(MyResearchActivity.class);
                 break;
             case R.id.btn_back_to_home:
                 AppManager.getAppManager().returnToActivity(MainTabActivity.class);

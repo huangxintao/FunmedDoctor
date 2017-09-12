@@ -46,15 +46,16 @@ public class NormalDetectionActivity extends BaseActivity {
     private LeftListAdapter adapter;
     private double totalPrice = 0;
 
-    private String[] leftStr = new String[]{"核酸检测", "蛋白检测", "细胞检测"};
+    private String[] leftStr = new String[]{"核酸检测", "蛋白检测", "细胞检测","高端检测"};
     private boolean[] flagArray = {true, false, false, false, false, false, false, false, false};
     private String[][] rightStr = new String[][]{
             {"rtPCR检测", "单核苷酸多态性分析", "miRNA检测", "mRNA检测"},
             {"WB检测", "ELISA检测", "免疫组化检测"},
             {"重组病毒构建、病毒包装与滴度测定", "原带/传代细胞的培养与分离",
                     "细胞克隆技术", "细胞增殖/毒性检测",
-                    "细胞凋亡/周期检测", "细胞迁移/侵袭检测", "细胞传染/传导实验", "细胞稳定术的构建",
+                    "细胞凋亡/周期检测", "细胞迁移/侵袭检测", "细胞传染/传导实验", "细胞稳定株的构建",
                     "流式细胞术", "细胞免疫荧光检测技术"},
+            {"单细胞测序","流行病调查","出院后随机调查","定制特定疾病生物样本库"}
     };
     private List<List<NormalDetectionBean>> rigrtData = new ArrayList<List<NormalDetectionBean>>();
     private List<NormalDetectionBean> data = new ArrayList<NormalDetectionBean>();
@@ -189,31 +190,38 @@ public class NormalDetectionActivity extends BaseActivity {
 
     private void makeData() {
         List<NormalDetectionBean> subData1 = new ArrayList<>();
-        subData1.add(new NormalDetectionBean("1", "rtPCR检测", 100.00, 0));
-        subData1.add(new NormalDetectionBean("2", "单核苷酸多态性分析", 800.00, 0));
-        subData1.add(new NormalDetectionBean("3", "miRNA检测", 260.00, 0));
-        subData1.add(new NormalDetectionBean("4", "mRNA检测", 6000.00, 0));
+        subData1.add(new NormalDetectionBean("1", "rtPCR检测", 100.00, 0,R.mipmap.detection1));
+        subData1.add(new NormalDetectionBean("2", "单核苷酸多态性分析", 800.00, 0,R.mipmap.detection2));
+        subData1.add(new NormalDetectionBean("3", "miRNA检测", 260.00, 0,R.mipmap.detection3));
+        subData1.add(new NormalDetectionBean("4", "mRNA检测", 6000.00, 0,R.mipmap.detection4));
 
         List<NormalDetectionBean> subData2 = new ArrayList<>();
-        subData2.add(new NormalDetectionBean("5", "WB检测", 1200.00, 0));
-        subData2.add(new NormalDetectionBean("6", "ELISA检测", 2500.00, 0));
-        subData2.add(new NormalDetectionBean("7", "免疫组化检测", 80.00, 0));
+        subData2.add(new NormalDetectionBean("5", "WB检测", 1200.00, 0,R.mipmap.detection5));
+        subData2.add(new NormalDetectionBean("6", "ELISA检测", 2500.00, 0,R.mipmap.detection6));
+        subData2.add(new NormalDetectionBean("7", "免疫组化检测", 80.00, 0,R.mipmap.detection7));
 
         List<NormalDetectionBean> subData3 = new ArrayList<>();
-        subData3.add(new NormalDetectionBean("8", "重组病毒构建、病毒包装与滴度测定", 18000.00, 0));
-        subData3.add(new NormalDetectionBean("9", "原带/传代细胞的培养与分离", 12000.00, 0));
-        subData3.add(new NormalDetectionBean("10", "细胞克隆技术", 20000.00, 0));
-        subData3.add(new NormalDetectionBean("11", "细胞增殖/毒性检测", 2000.00, 0));
-        subData3.add(new NormalDetectionBean("12", "细胞凋亡/周期检测", 600.00, 0));
-        subData3.add(new NormalDetectionBean("13", "细胞迁移/侵袭检测", 500.00, 0));
-        subData3.add(new NormalDetectionBean("14", "细胞传染/传导实验", 2500.00, 0));
-        subData3.add(new NormalDetectionBean("15", "细胞稳定株的构建", 16000.00, 0));
-        subData3.add(new NormalDetectionBean("16", "流式细胞术", 100.00, 0));
-        subData3.add(new NormalDetectionBean("17", "细胞免疫荧光检测技术", 3500.00, 0));
+        subData3.add(new NormalDetectionBean("8", "重组病毒构建、病毒包装与滴度测定", 18000.00, 0,R.mipmap.detection8));
+        subData3.add(new NormalDetectionBean("9", "原带/传代细胞的培养与分离", 12000.00, 0,R.mipmap.detection9));
+        subData3.add(new NormalDetectionBean("10", "细胞克隆技术", 20000.00, 0,R.mipmap.detection10));
+        subData3.add(new NormalDetectionBean("11", "细胞增殖/毒性检测", 2000.00, 0,R.mipmap.detection11));
+        subData3.add(new NormalDetectionBean("12", "细胞凋亡/周期检测", 600.00, 0,R.mipmap.detection12));
+        subData3.add(new NormalDetectionBean("13", "细胞迁移/侵袭检测", 500.00, 0,R.mipmap.detection13));
+        subData3.add(new NormalDetectionBean("14", "细胞传染/传导实验", 2500.00, 0,R.mipmap.detection14));
+        subData3.add(new NormalDetectionBean("15", "细胞稳定株的构建", 16000.00, 0,R.mipmap.detection15));
+        subData3.add(new NormalDetectionBean("16", "流式细胞术", 100.00, 0,R.mipmap.detection16));
+        subData3.add(new NormalDetectionBean("17", "细胞免疫荧光检测技术", 3500.00, 0,R.mipmap.detection17));
+
+        List<NormalDetectionBean> subData4 = new ArrayList<>();
+        subData4.add(new NormalDetectionBean("18", "单细胞测序", 6000.00, 0,R.mipmap.detection17));
+        subData4.add(new NormalDetectionBean("19", "流行病调查", 3500.00, 0,R.mipmap.detection17));
+        subData4.add(new NormalDetectionBean("20", "出院后随机调查", 3500.00, 0,R.mipmap.detection17));
+        subData4.add(new NormalDetectionBean("21", "定制特定疾病生物样本库", 3500.00, 0,R.mipmap.detection17));
 
         rigrtData.add(subData1);
         rigrtData.add(subData2);
         rigrtData.add(subData3);
+        rigrtData.add(subData4);
     }
 
     public void updateTotalPrice(List<List<NormalDetectionBean>> data) {

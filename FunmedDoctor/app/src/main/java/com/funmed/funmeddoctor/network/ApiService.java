@@ -3,6 +3,7 @@ package com.funmed.funmeddoctor.network;
 import com.funmed.funmeddoctor.bean.AidResearchListBean;
 import com.funmed.funmeddoctor.bean.BaseBean;
 import com.funmed.funmeddoctor.bean.DataResponse;
+import com.funmed.funmeddoctor.bean.FormResponseData;
 import com.funmed.funmeddoctor.bean.GarbageBean;
 import com.funmed.funmeddoctor.bean.InfomationListBean;
 import com.funmed.funmeddoctor.bean.MsgInfoDetailBean;
@@ -129,7 +130,7 @@ public interface ApiService {
      */
     @FormUrlEncoded
     @POST("research/addResearchForm.do")
-    Call<DataResponse<String>> addResearchForm(@FieldMap Map<String,String> params);
+    Call<DataResponse<FormResponseData>> addResearchForm(@FieldMap Map<String,String> params);
 
     /**
      * 查询发起的互助式研究表
@@ -138,13 +139,30 @@ public interface ApiService {
      */
     @FormUrlEncoded
     @POST("research/findAidResearch.do")
-    Call<AidResearchListBean> findAidResearch(@Field("userid")String useid);
+    Call<AidResearchListBean> findAidResearch(@Field("userid")String useid,@Field("formtype")String formtype);
+
+    /**
+     * 查询所有互助式研究的数据
+     * @return
+     */
+    @POST("research/findAll.do")
+    Call<AidResearchListBean> findAllResearch();
 
     /**
      * 提交常规检测订单
-     *
+     * @param params
+     * @return
      */
     @FormUrlEncoded
     @POST("common/addCommonsDetection.do")
     Call<GarbageBean> addCommonDetection(@FieldMap Map<String,String> params);
+
+    /**
+     * 提交高端检测订单
+     * @param params
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("high/addHighDetection.do")
+    Call<BaseBean> addSeniorDetection(@FieldMap Map<String,String> params);
 }

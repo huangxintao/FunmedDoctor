@@ -72,7 +72,7 @@
                 android:layout_marginLeft="40dp"
                 android:text="获取验证码"
                 android:textColor="@color/white"
-                android:background="@color/main_color"
+                android:background="@drawable/bg_identify_code_normal"
                 android:padding="10dp"
                 android:layout_gravity="right" />
         </LinearLayout>

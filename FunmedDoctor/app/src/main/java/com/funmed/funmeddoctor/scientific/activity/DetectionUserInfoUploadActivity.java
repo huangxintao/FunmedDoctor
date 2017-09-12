@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.funmed.funmeddoctor.R;
 import com.funmed.funmeddoctor.bean.NormalDetectionBean;
+import com.funmed.funmeddoctor.bean.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -63,6 +64,10 @@ public class DetectionUserInfoUploadActivity extends BaseActivity {
         toolbarTitle.setText("联系人信息");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+        etName.setText(User.getUser().getUsername());
+        etPhone.setText(User.getUser().getMobile());
+        etEmail.setText(User.getUser().getEmail());
+        etAddress.setText(User.getUser().getAddress());
 
         dataList.clear();
         dataList = getIntent().getExtras().getParcelableArrayList("data");

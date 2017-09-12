@@ -2,6 +2,7 @@ package com.funmed.funmeddoctor.mine.activity;
 
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -13,6 +14,9 @@ import com.funmed.funmeddoctor.R;
 import com.funmed.funmeddoctor.bean.BaseBean;
 import com.funmed.funmeddoctor.network.APIServiceImpl;
 import com.funmed.funmeddoctor.network.ApiService;
+import com.funmed.funmeddoctor.utils.CountDownTimerUtils;
+
+import org.w3c.dom.Text;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -76,16 +80,18 @@ public class RegisterActivity extends BaseActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_get_checkcode:
-                if (etTelephone != null && !"".equals(etTelephone)) {
+                if (!TextUtils.isEmpty(etTelephone.getText())) {
+                    CountDownTimerUtils countDownTimerUtils = new CountDownTimerUtils(btnGetCheckcode,60000,1000);
+                    countDownTimerUtils.start();
                     getCheckCode();
                 } else {
-                    ToastUitl.showShort("手机号不能为空");
+                    Toast.makeText(mContext, "手机号不能为空", Toast.LENGTH_SHORT).show();
                 }
                 break;
             case R.id.btn_register:
-//                if (checkNull()) {
-                goRegister();
-//                }
+                if (checkNull()) {
+                    goRegister();
+                }
                 break;
         }
     }
@@ -136,26 +142,21 @@ public class RegisterActivity extends BaseActivity {
     //验证用户输入信息
     private boolean checkNull() {
         boolean isChecked = false;
-        if (etTelephone != null && !"".equals(etTelephone)) {
-            if (etUsername != null && !"".equals(etUsername)) {
-                if (etCheckcode != null && !"".equals(etCheckcode)) {
-                    if (etPassword != null
-                            && etConfirmPassword != null
-                            && !"".equals(etPassword)
-                            && !"".equals(etConfirmPassword)
-                            && etPassword.getText().toString().equals(etConfirmPassword.getText())) {
-                        isChecked = true;
-                    } else {
-                        Toast.makeText(getApplicationContext(), "密码格式不对", Toast.LENGTH_SHORT).show();
-                    }
-                } else {
-                    Toast.makeText(getApplicationContext(), "请输入验证码", Toast.LENGTH_SHORT).show();
-                }
-            } else {
-                Toast.makeText(getApplicationContext(), "请输入用户名", Toast.LENGTH_SHORT).show();
-            }
-        } else {
+
+        if (TextUtils.isEmpty(etTelephone.getText())) {
             Toast.makeText(getApplicationContext(), "请输入手机号", Toast.LENGTH_SHORT).show();
+        } else if (TextUtils.isEmpty(etUsername.getText())) {
+            Toast.makeText(getApplicationContext(), "请输入用户名", Toast.LENGTH_SHORT).show();
+        } else if (TextUtils.isEmpty(etCheckcode.getText())) {
+            Toast.makeText(getApplicationContext(), "请输入验证码", Toast.LENGTH_SHORT).show();
+        } else if (TextUtils.isEmpty(etPassword.getText())) {
+            Toast.makeText(getApplicationContext(), "密码格式不对", Toast.LENGTH_SHORT).show();
+        } else if (TextUtils.isEmpty(etConfirmPassword.getText())) {
+            Toast.makeText(getApplicationContext(), "请再次输入密码", Toast.LENGTH_SHORT).show();
+        } else if (!etPassword.getText().equals(etConfirmPassword.getText())) {
+            Toast.makeText(getApplicationContext(), "两次输入的密码不同", Toast.LENGTH_SHORT).show();
+        } else {
+            isChecked = true;
         }
         return isChecked;
     }

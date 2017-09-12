@@ -9,6 +9,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.funmed.funmeddoctor.R;
 import com.funmed.funmeddoctor.bean.ClinicalDataBean;
 import com.funmed.funmeddoctor.clinical.activity.DetectionSchemeActivity;
+import com.funmed.funmeddoctor.clinical.activity.SBKDetectionActivity;
 import com.funmed.funmeddoctor.clinical.adapter.ClinicalDataAdapter;
 
 import java.util.ArrayList;
@@ -54,7 +55,8 @@ public class ClinicalFragement extends BaseFragment {
                 //跳转到数据页面
                 switch (position) {
                     case 0:
-                        startActivity(DetectionSchemeActivity.class);
+//                        startActivity(DetectionSchemeActivity.class);
+                        startActivity(SBKDetectionActivity.class);
                         break;
                     case 1:
                         break;
@@ -74,15 +76,20 @@ public class ClinicalFragement extends BaseFragment {
     private List<ClinicalDataBean> getData() {
         List<ClinicalDataBean> data = new ArrayList<ClinicalDataBean>();
         ClinicalDataBean clinicalDataBean = null;
-        String[] names = {"检测方案", "检测数据", "健康教育", "工作报酬", "评论建议"};
-        for (int i = 0; i < 5; i++) {
-            clinicalDataBean = new ClinicalDataBean();
-            clinicalDataBean.setDataId(i + "");
-            clinicalDataBean.setDataName(names[i]);
-            clinicalDataBean.setDataImg(R.mipmap.teacher);
-            data.add(clinicalDataBean);
-            clinicalDataBean = null;
-        }
+        clinicalDataBean=  new ClinicalDataBean();
+        clinicalDataBean.setDataId(1+"");
+        clinicalDataBean.setDataName("检测方案");
+        clinicalDataBean.setDataImg(R.mipmap.help_icon);
+        data.add(clinicalDataBean);
+//        String[] names = {"检测方案", "检测数据", "健康教育", "工作报酬", "评论建议"};
+//        for (int i = 0; i < 5; i++) {
+//            clinicalDataBean = new ClinicalDataBean();
+//            clinicalDataBean.setDataId(i + "");
+//            clinicalDataBean.setDataName(names[i]);
+//            clinicalDataBean.setDataImg(R.mipmap.help_icon);
+//            data.add(clinicalDataBean);
+//            clinicalDataBean = null;
+//        }
         return data;
     }
 }

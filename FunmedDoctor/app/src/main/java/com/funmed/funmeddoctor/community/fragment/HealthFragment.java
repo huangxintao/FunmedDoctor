@@ -62,9 +62,10 @@ public class HealthFragment extends BaseFragment {
 
     @Override
     protected void initView() {
+        data.clear();
         rvHealth.setLayoutManager(layoutManager);
         title = "研究进展";
-        adapter = new HealthInfoAdapter(getContext(),data,title);
+        adapter = new HealthInfoAdapter(getContext(), data, title);
         rvHealth.setAdapter(adapter);
         refreshData();
 
@@ -72,7 +73,7 @@ public class HealthFragment extends BaseFragment {
             @Override
             public void onRefresh() {
                 layoutHeralthRefresh.setRefreshing(true);
-                currentpage=1;
+                currentpage = 1;
                 data.clear();
                 refreshData();
             }
@@ -81,7 +82,7 @@ public class HealthFragment extends BaseFragment {
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
-                if (newState==RecyclerView.SCROLL_STATE_IDLE &&lastVisableItem+1==adapter.getItemCount()){
+                if (newState == RecyclerView.SCROLL_STATE_IDLE && lastVisableItem + 1 == adapter.getItemCount()) {
                     loadMoreData();
                 }
             }
@@ -111,7 +112,8 @@ public class HealthFragment extends BaseFragment {
                 if (response.body().getCode() == 0) {
                     data.addAll(response.body().getData().getInformations());
                     adapter.notifyDataSetChanged();
-                    layoutHeralthRefresh.setRefreshing(false);
+                    if (layoutHeralthRefresh != null)
+                        layoutHeralthRefresh.setRefreshing(false);
                 }
             }
 

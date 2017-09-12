@@ -63,6 +63,7 @@ public class HospitalFragment extends BaseFragment {
 
     @Override
     protected void initView() {
+        data.clear();
         rvHospital.setLayoutManager(layoutManager);
         title = "医院信息";
         adapter = new HealthInfoAdapter(getContext(), data,title);

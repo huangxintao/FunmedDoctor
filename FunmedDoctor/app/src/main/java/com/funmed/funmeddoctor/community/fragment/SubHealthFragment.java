@@ -73,6 +73,7 @@ public class SubHealthFragment extends BaseFragment {
 
     @Override
     protected void initView() {
+        data.clear();
         rvSubhealth.setLayoutManager(layoutManager);
         title = "研究进展";
         adapter = new AidResearchInfoAdapter(getContext(),data,title);
@@ -111,7 +112,8 @@ public class SubHealthFragment extends BaseFragment {
     }
 
     private void refreshData() {
-        Call<AidResearchListBean> call = service.findAidResearch(User.getUser().getUserid());
+//        Call<AidResearchListBean> call = service.findAidResearch(User.getUser().getUserid(),"1");
+        Call<AidResearchListBean> call = service.findAllResearch();
         call.enqueue(new Callback<AidResearchListBean>() {
             @Override
             public void onResponse(Call<AidResearchListBean> call, Response<AidResearchListBean> response) {

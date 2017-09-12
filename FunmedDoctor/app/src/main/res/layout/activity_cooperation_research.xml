@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollview"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-
-    <include layout="@layout/layout_toolbar" />
-
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <include layout="@layout/layout_toolbar" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -118,6 +118,21 @@
                 android:padding="5dp"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Spinner
+                    android:id="@+id/spinner_seek_help"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/border_1dp"
+                    android:padding="5dp" />
+            </LinearLayout>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -135,7 +150,6 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:background="@drawable/border_1dp"
-                android:inputType="number"
                 android:padding="5dp"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
@@ -156,7 +170,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:background="@drawable/border_1dp"
-                android:inputType="number"
+                android:inputType="date"
                 android:padding="5dp"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
@@ -177,19 +191,25 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:background="@drawable/border_1dp"
-                android:inputType="number"
+                android:inputType="text"
                 android:padding="5dp"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
         </LinearLayout>
-    </ScrollView>
 
-    <Button
-        android:id="@+id/btn_commit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/main_color"
-        android:text="提交"
-        android:textColor="@color/white"
-        android:textSize="20sp" />
-</LinearLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:id="@+id/input_corver"/>
+        <Button
+            android:id="@+id/btn_commit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/main_color"
+            android:text="提交"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+
+</ScrollView>

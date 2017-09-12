@@ -46,7 +46,7 @@ public class MyResearchActivity extends BaseActivity {
     private AidResearchInfoAdapter adapter;
     private LinearLayoutManager layoutManager;
     private int currentpage = 1;
-    private String title="";
+    private String title = "";
 
     @Override
     public int getLayoutId() {
@@ -70,9 +70,9 @@ public class MyResearchActivity extends BaseActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        title="我发起的";
+        title = "我发起的";
         rvMyresearch.setLayoutManager(layoutManager);
-        adapter = new AidResearchInfoAdapter(this,data,title);
+        adapter = new AidResearchInfoAdapter(this, data, title);
         rvMyresearch.setAdapter(adapter);
         refreshData();
 
@@ -80,7 +80,7 @@ public class MyResearchActivity extends BaseActivity {
             @Override
             public void onRefresh() {
                 layoutMyresearchRefresh.setRefreshing(true);
-                currentpage=1;
+                currentpage = 1;
                 data.clear();
                 refreshData();
             }
@@ -88,7 +88,8 @@ public class MyResearchActivity extends BaseActivity {
     }
 
     private void refreshData() {
-        Call<AidResearchListBean> call = service.findAidResearch(User.getUser().getUserid());
+        Call<AidResearchListBean> call = service.findAidResearch(User.getUser().getUserid(), "1");
+//        Call<AidResearchListBean> call = service.findAllResearch();
         call.enqueue(new Callback<AidResearchListBean>() {
             @Override
             public void onResponse(Call<AidResearchListBean> call, Response<AidResearchListBean> response) {
@@ -96,6 +97,23 @@ public class MyResearchActivity extends BaseActivity {
                     data.addAll(response.body().getData());
                     adapter.notifyDataSetChanged();
                     layoutMyresearchRefresh.setRefreshing(false);
+                    Call<AidResearchListBean> call1 = service.findAidResearch(User.getUser().getUserid(), "2");
+//                    Call<AidResearchListBean> call = service.findAllResearch();
+                    call1.enqueue(new Callback<AidResearchListBean>() {
+                        @Override
+                        public void onResponse(Call<AidResearchListBean> call, Response<AidResearchListBean> response) {
+                            if (response.body().getCode() == 0) {
+                                data.addAll(response.body().getData());
+                                adapter.notifyDataSetChanged();
+                                layoutMyresearchRefresh.setRefreshing(false);
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<AidResearchListBean> call, Throwable t) {
+
+                        }
+                    });
                 }
             }
 

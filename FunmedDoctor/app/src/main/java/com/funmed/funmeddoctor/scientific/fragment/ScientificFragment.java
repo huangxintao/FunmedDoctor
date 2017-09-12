@@ -62,11 +62,11 @@ public class ScientificFragment extends BaseFragment {
                         startActivity(ScientificProjectOrderPlaceActivity.class);
                         break;
                     case 1:
+                        startActivity(CooperationResearchActivity.class);
                         break;
                     case 2:
                         break;
                     case 3:
-                        startActivity(CooperationResearchActivity.class);
                         break;
                 }
             }
@@ -78,7 +78,8 @@ public class ScientificFragment extends BaseFragment {
     private List<ClinicalDataBean> getData() {
         List<ClinicalDataBean> data = new ArrayList<ClinicalDataBean>();
         ClinicalDataBean clinicalDataBean = null;
-        String[] names = {"科研项目下单", "统计分析", "项目订单查询","发起互助式研究"};
+//        String[] names = {"科研项目下单", "统计分析", "项目订单查询","发起互助式研究"};
+        String[] names = {"科研项目下单", "发起互助式研究"};
         for (int i = 0; i < names.length; i++) {
             clinicalDataBean = new ClinicalDataBean();
             clinicalDataBean.setDataId(i + "");

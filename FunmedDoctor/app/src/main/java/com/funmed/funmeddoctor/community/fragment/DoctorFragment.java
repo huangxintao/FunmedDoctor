@@ -67,6 +67,7 @@ public class DoctorFragment extends BaseFragment {
 
     @Override
     protected void initView() {
+        data.clear();
         rvDoctor.setLayoutManager(layoutManager);
         adapter = new HealthInfoAdapter(getContext(), data,"医生资讯");
         rvDoctor.setAdapter(adapter);
