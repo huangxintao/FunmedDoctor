@@ -158,6 +158,7 @@
             android:configChanges="orientation|keyboardHidden|screenSize"/>
         <activity android:name=".mine.activity.MyDetectionOrderListActivity" />
         <activity android:name=".mine.activity.AboutUsActivity" />
+        <activity android:name=".scientific.activity.PayWaySelectActivity" />
 
     </application>
 

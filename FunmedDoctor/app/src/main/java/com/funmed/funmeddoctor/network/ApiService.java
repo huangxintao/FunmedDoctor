@@ -7,6 +7,8 @@ import com.funmed.funmeddoctor.bean.FormResponseData;
 import com.funmed.funmeddoctor.bean.GarbageBean;
 import com.funmed.funmeddoctor.bean.InfomationListBean;
 import com.funmed.funmeddoctor.bean.MsgInfoDetailBean;
+import com.funmed.funmeddoctor.bean.OrderBean;
+import com.funmed.funmeddoctor.bean.PayResponseBean;
 
 import java.util.Map;
 
@@ -22,7 +24,7 @@ import retrofit2.http.POST;
  */
 
 public interface ApiService {
-    String BASE_URL = "http://www.sup-heal.com:8080/FunengSR/";
+    String BASE_URL = "https://www.sup-heal.com/FunengSR/";
     String BASE_URL_INFORMATION = "http://121.40.169.248:8010/FunengSBK/";
     /**
      * 首页
@@ -165,4 +167,23 @@ public interface ApiService {
     @FormUrlEncoded
     @POST("high/addHighDetection.do")
     Call<BaseBean> addSeniorDetection(@FieldMap Map<String,String> params);
+
+    /**
+     * 创建订单
+     * @param params
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("order/createFormOrder.do")
+    Call<OrderBean> createFromOrder(@FieldMap Map<String,String> params);
+
+    /**
+     * 支付宝支付接口
+     * @param params
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("alipay/pay.do")
+    Call<PayResponseBean> getAliPayInfo(@FieldMap Map<String,String> params);
+
 }

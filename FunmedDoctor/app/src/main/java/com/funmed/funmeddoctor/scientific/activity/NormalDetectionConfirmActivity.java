@@ -1,16 +1,20 @@
 package com.funmed.funmeddoctor.scientific.activity;
 
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.funmed.funmeddoctor.R;
 import com.funmed.funmeddoctor.bean.BaseBean;
 import com.funmed.funmeddoctor.bean.GarbageBean;
 import com.funmed.funmeddoctor.bean.NormalDetectionBean;
+import com.funmed.funmeddoctor.bean.OrderBean;
 import com.funmed.funmeddoctor.bean.User;
 import com.funmed.funmeddoctor.network.APIServiceImpl;
 import com.funmed.funmeddoctor.network.ApiService;
@@ -62,6 +66,9 @@ public class NormalDetectionConfirmActivity extends BaseActivity {
     private OrderConfirmDetectionAdapter adapter;
     private String totalPrice;
     private ApiService service;
+    private String form_id="";
+    private String form_type="";
+    private Map<String,String> param = new ConcurrentHashMap<String,String>();
 
     @Override
     public int getLayoutId() {
@@ -142,6 +149,9 @@ public class NormalDetectionConfirmActivity extends BaseActivity {
         params.put("email",getIntent().getExtras().getString("email"));
         params.put("address",getIntent().getExtras().getString("address"));
         for (int i = 0; i <interfaceList.size(); i++) {
+            if (dataList.size()==0){
+                params.put(interfaceList.get(i).getDetection_field(),"0");
+            }
             for (int j = 0; j <dataList.size() ; j++) {
                 if (dataList.get(j).getId().equals(interfaceList.get(i).getId())){
                     interfaceList.get(i).setNumber(dataList.get(j).getNumber());
@@ -154,13 +164,41 @@ public class NormalDetectionConfirmActivity extends BaseActivity {
             @Override
             public void onResponse(Call<GarbageBean> call, Response<GarbageBean> response) {
                 if (response.body()!=null){
-                    startActivity(CommitSuccessActivity.class);
+                    form_id=response.body().getData().getForm_id()+"";
+                    form_type = response.body().getData().getForm_type();
+                    createFormOrder();
                 }
             }
 
             @Override
             public void onFailure(Call<GarbageBean> call, Throwable t) {
 
+            }
+        });
+    }
+
+    public void createFormOrder(){
+        param.clear();
+        param.put("form_id",form_id);
+        param.put("form_type",form_type);
+        param.put("price",totalPrice);
+        Call<OrderBean> call = service.createFromOrder(param);
+        call.enqueue(new Callback<OrderBean>() {
+            @Override
+            public void onResponse(Call<OrderBean> call, Response<OrderBean> response) {
+                if (response.body()!=null){
+                    Bundle bundle = new Bundle();
+                    bundle.putString("subject","常规检测订单");
+                    bundle.putString("body",response.body().getData().getOrder_id());
+                    bundle.putString("price",totalPrice);
+                    bundle.putString("order_id",response.body().getData().getOrder_id());
+                    startActivity(PayWaySelectActivity.class,bundle);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<OrderBean> call, Throwable t) {
+                Toast.makeText(NormalDetectionConfirmActivity.this,t.toString(), Toast.LENGTH_SHORT).show();
             }
         });
     }
