@@ -12,6 +12,7 @@ public interface IConstants {
     int TYPE_HOSPITAL=2;
     int TYPE_DOCTOR=3;
     int TYPE_SUBHEALTH=4;
+    String APP_ID="wx84c8bdc2aa4e2178";
 
     interface RequestUrl
     {

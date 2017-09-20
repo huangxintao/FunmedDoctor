@@ -9,6 +9,7 @@ import com.funmed.funmeddoctor.bean.InfomationListBean;
 import com.funmed.funmeddoctor.bean.MsgInfoDetailBean;
 import com.funmed.funmeddoctor.bean.OrderBean;
 import com.funmed.funmeddoctor.bean.PayResponseBean;
+import com.funmed.funmeddoctor.bean.WXPayResponseBean;
 
 import java.util.Map;
 
@@ -186,4 +187,7 @@ public interface ApiService {
     @POST("alipay/pay.do")
     Call<PayResponseBean> getAliPayInfo(@FieldMap Map<String,String> params);
 
+    @FormUrlEncoded
+    @POST("alipay/weixinpay.do")
+    Call<WXPayResponseBean> getWXPayInfo(@FieldMap Map<String,String> params);
 }
