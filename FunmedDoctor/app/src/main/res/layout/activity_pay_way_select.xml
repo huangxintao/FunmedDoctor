@@ -123,6 +123,7 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:visibility="gone"
         android:id="@+id/weixin_pay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">

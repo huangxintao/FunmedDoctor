@@ -71,7 +71,7 @@ public class ScientificProjectOrderPlaceActivity extends BaseActivity {
 
     @Override
     public void initView() {
-        toolbarTitle.setText("科研项目下单");
+        toolbarTitle.setText("科研检测");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         rvScientificOrderType.setLayoutManager(linearLayoutManager);
@@ -122,8 +122,8 @@ public class ScientificProjectOrderPlaceActivity extends BaseActivity {
     private List<ScientificOrderTypeBean> getList() {
         List<ScientificOrderTypeBean> list = new ArrayList<ScientificOrderTypeBean>();
         ScientificOrderTypeBean bean = null;
-        String[] names = {"常规检测", "高端检测", "协助SCI"};
-        for (int i = 0; i < 3; i++) {
+        String[] names = {"常规检测", "协助SCI"};
+        for (int i = 0; i < 2; i++) {
             bean = new ScientificOrderTypeBean();
             bean.setTypeName(names[i]);
             list.add(bean);

@@ -79,7 +79,7 @@ public class ScientificFragment extends BaseFragment {
         List<ClinicalDataBean> data = new ArrayList<ClinicalDataBean>();
         ClinicalDataBean clinicalDataBean = null;
 //        String[] names = {"科研项目下单", "统计分析", "项目订单查询","发起互助式研究"};
-        String[] names = {"科研项目下单", "发起互助式研究"};
+        String[] names = {"科研检测", "发起互助式研究"};
         for (int i = 0; i < names.length; i++) {
             clinicalDataBean = new ClinicalDataBean();
             clinicalDataBean.setDataId(i + "");

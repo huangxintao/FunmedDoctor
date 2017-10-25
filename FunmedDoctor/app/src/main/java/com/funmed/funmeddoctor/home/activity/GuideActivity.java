@@ -1,5 +1,7 @@
 package com.funmed.funmeddoctor.home.activity;
 
+import com.funmed.funmeddoctor.R;
+
 import me.murphy.common.base.BaseActivity;
 
 /**
@@ -7,4 +9,23 @@ import me.murphy.common.base.BaseActivity;
  */
 
 public class GuideActivity extends BaseActivity {
+    @Override
+    public int getLayoutId() {
+        return R.layout.layout_guide_activity;
+    }
+
+    @Override
+    public void initPresenter() {
+
+    }
+
+    @Override
+    protected void initVariable() {
+
+    }
+
+    @Override
+    public void initView() {
+
+    }
 }

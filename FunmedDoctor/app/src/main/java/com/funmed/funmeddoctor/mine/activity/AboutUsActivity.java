@@ -59,7 +59,7 @@ public class AboutUsActivity extends BaseActivity {
         //自适应屏幕
         webview.getSettings().setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
         webview.getSettings().setLoadWithOverviewMode(true);
-        webview.loadUrl("http://www.fun-med.cn:8090/index/");                  //加载需要显示的网页
+        webview.loadUrl("https://www.fun-med.cn/index/");                  //加载需要显示的网页
         webview.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {

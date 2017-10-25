@@ -102,7 +102,7 @@ public class CooperationResearchActivity extends BaseActivity {
     RadioButton rbNotChecked;
     private ApiService service;
     private Map<String, String> params = new HashMap<String, String>();
-    private String[] items = {"找样本", "找合作伙伴"};
+    private String[] items = {"找样本", "找合作伙伴","找资金","找数据"};
     private int help_tpye = 1;
     private String isUrgent = "否";
     private String isChecked = "否";

@@ -27,7 +27,7 @@ public interface IConstants {
         /**
          * 图片根地址
          */
-        String BASE_PICTURE_URL_SITE = "http://121.40.169.248";
+        String BASE_PICTURE_URL_SITE = "https://121.40.169.248";
         /**
          * 注册
          */

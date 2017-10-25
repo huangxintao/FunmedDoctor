@@ -160,6 +160,8 @@
         <activity android:name=".mine.activity.MyDetectionOrderListActivity" />
         <activity android:name=".mine.activity.AboutUsActivity" />
         <activity android:name=".scientific.activity.PayWaySelectActivity" />
+        <activity android:name=".home.activity.GuideActivity" />
+        <activity android:name=".scientific.activity.SecondNormalDetectionActivitiy" />
 
     </application>
 
