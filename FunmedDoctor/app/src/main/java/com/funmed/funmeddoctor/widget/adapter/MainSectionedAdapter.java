@@ -1,6 +1,8 @@
 package com.funmed.funmeddoctor.widget.adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -10,18 +12,19 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.funmed.funmeddoctor.R;
 import com.funmed.funmeddoctor.bean.NormalDetectionBean;
+import com.funmed.funmeddoctor.clinical.activity.DetectionCellDetailActivity;
+import com.funmed.funmeddoctor.clinical.activity.DetectionDNADetailActivity;
+import com.funmed.funmeddoctor.clinical.activity.DetectionHighDetailActivity;
+import com.funmed.funmeddoctor.clinical.activity.DetectionProteinDetailActivity;
 import com.funmed.funmeddoctor.scientific.activity.NormalDetectionActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
-import me.murphy.common.commonutils.ImageLoaderUtils;
 
 /**
  * Created by tony on 2017/7/31.
@@ -164,7 +167,20 @@ public class MainSectionedAdapter extends SectionedBaseAdapter {
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                Toast.makeText(mContext, rightData.get(section).get(position).getName(), Toast.LENGTH_SHORT).show();
+                Intent intent = null;
+                if (section==0){
+                    intent = new Intent(mContext,DetectionDNADetailActivity.class);
+                }else if (section==1){
+                    intent = new Intent(mContext, DetectionProteinDetailActivity.class);
+                }else if (section==2){
+                    intent = new Intent(mContext, DetectionCellDetailActivity.class);
+                }else {
+                    intent = new Intent(mContext, DetectionHighDetailActivity.class);
+                }
+//                Bundle bundle = new Bundle();
+//                bundle.putParcelable("data",normalDetectionBean);
+                mContext.startActivity(intent);
+////                Toast.makeText(mContext, rightData.get(section).get(position).getName(), Toast.LENGTH_SHORT).show();
             }
         });
         return convertView;

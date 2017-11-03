@@ -25,8 +25,8 @@ import retrofit2.http.POST;
  */
 
 public interface ApiService {
-    String BASE_URL = "https://www.sup-heal.com/FunengSR/";
-    String BASE_URL_INFORMATION = "https://121.40.169.248/FunengSBK/";
+    String BASE_URL = "https://www.sup-heal.com:8080/FunengSR/";
+    String BASE_URL_INFORMATION = "http://www.fun-med.cn:8080/FunengSBK/";
     /**
      * 首页
      *

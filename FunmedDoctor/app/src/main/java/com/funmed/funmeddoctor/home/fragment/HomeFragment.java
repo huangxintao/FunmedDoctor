@@ -14,6 +14,7 @@ import com.funmed.funmeddoctor.clinical.activity.SBKDetectionActivity;
 import com.funmed.funmeddoctor.home.activity.MainTabActivity;
 import com.funmed.funmeddoctor.scientific.activity.CooperationResearchActivity;
 import com.funmed.funmeddoctor.scientific.activity.NormalDetectionActivity;
+import com.funmed.funmeddoctor.scientific.activity.SecondNormalDetectionActivitiy;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -133,13 +134,15 @@ public class HomeFragment extends BaseFragment {
         tv1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(NormalDetectionActivity.class);
+                startActivity(SecondNormalDetectionActivitiy.class);
+                popupWindow.dismiss();
             }
         });
         tv2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(CooperationResearchActivity.class);
+                popupWindow.dismiss();
             }
         });
         View root = LayoutInflater.from(getActivity()).inflate(R.layout.activity_main_tab,null);

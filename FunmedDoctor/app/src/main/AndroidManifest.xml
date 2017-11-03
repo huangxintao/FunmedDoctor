@@ -162,6 +162,10 @@
         <activity android:name=".scientific.activity.PayWaySelectActivity" />
         <activity android:name=".home.activity.GuideActivity" />
         <activity android:name=".scientific.activity.SecondNormalDetectionActivitiy" />
+        <activity android:name=".clinical.activity.DetectionDNADetailActivity" />
+        <activity android:name=".clinical.activity.DetectionProteinDetailActivity" />
+        <activity android:name=".clinical.activity.DetectionCellDetailActivity" />
+        <activity android:name=".clinical.activity.DetectionHighDetailActivity" />
 
     </application>
 

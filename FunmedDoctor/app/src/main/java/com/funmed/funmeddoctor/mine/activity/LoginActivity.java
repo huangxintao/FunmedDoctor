@@ -113,7 +113,7 @@ public class LoginActivity extends BaseActivity {
                     User.getUser().setAddress(response.body().getData().getAddress());
                     User.getUser().setMobile(response.body().getData().getMobile());
                     startActivity(MainTabActivity.class);
-                    finish();
+//                    finish();
                 } else {
                     Toast.makeText(getApplicationContext(),response.body().getMsg(), Toast.LENGTH_SHORT).show();
                 }
@@ -122,6 +122,7 @@ public class LoginActivity extends BaseActivity {
             @Override
             public void onFailure(Call<BaseBean> call, Throwable t) {
                 startActivity(MainTabActivity.class);
+                finish();
                 t.printStackTrace();
             }
         });
